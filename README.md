@@ -11,7 +11,7 @@ We have created a web app that allows users to upload their PDF study notes, and
 | Technology     | Description                                                                 |
 |----------------|-----------------------------------------------------------------------------|
 | **React**      | Frontend framework used with **TypeScript**                                 |
-| **Tailwind CSS** | Utility-first CSS framework for rapid UI development                       |
+| **Tailwind CSS** | Utility-first CSS framework for rapid UI development                      |
 | **Node.js**    | Backend runtime environment with **TypeScript**                             |
 | **MySQL**      | Relational database to store user and quiz data                             |
 | **Clerk**      | Authentication and user management                                          |
