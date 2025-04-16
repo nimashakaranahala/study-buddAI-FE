@@ -1,0 +1,62 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #163F62;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  main {
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .account-section {
+    background-color: #e9eff5;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .account-section h2 {
+    color: #163F62;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+  }
+  
+  .account-section button {
+    background-color: #0e2a45;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .account-section button:hover {
+    background-color: #163F62;
+  }
+
+/* footer */
+footer {
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; 
+  }
