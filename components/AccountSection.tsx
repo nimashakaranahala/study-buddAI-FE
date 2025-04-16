@@ -6,7 +6,7 @@ interface AccountSectionProps {}
 const AccountSection: React.FC<AccountSectionProps> = () => {
   return (
     <section className="account-section">
-      <Link to="/create-account">
+      <Link to="/createaccount">
         <button>Create Account</button>
       </Link>
       <Link to="/login">
