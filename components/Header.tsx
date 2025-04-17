@@ -1,14 +1,25 @@
-// import Nav from '../components/Nav'
+import React, { useContext } from "react";
+import { UserContext } from "../src/contexts/User";
 
-function Header() {
-    return (
-        <>
 
-        <h1 className="title">Study BuddAI  LOGO</h1>
-        {/* <Nav/> */}
+const Header: React.FC = () => {
+  // Access the context
+  const context = useContext(UserContext);
 
-        </>
 
-    )}
+  if (!context) {
+    return <h1 className="title">Study BuddAI LOGO</h1>;
+  }
 
-export default Header
+  const { loggedInUser } = context;
+
+  return (
+    <>
+      <h1 className="title">Study BuddAI LOGO</h1>
+      <h2>Welcome {loggedInUser.username}</h2>
+      {/* <Nav /> */}
+    </>
+  );
+};
+
+export default Header;
