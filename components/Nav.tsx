@@ -11,6 +11,7 @@ function Nav() {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/quizzes">Quiz</Link></li>
         <li><Link to="/result">My Results</Link></li>
+        <li><Link to="/files/upload">Upload PDF</Link></li>
       </ul>
     </nav>
     </>
