@@ -20,7 +20,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     //update when users logs in 
   const [loggedInUser, setLoggedInUser] = useState<User>({
     user_id: 1,
-    username: "DevUser1",
+    username: "User 123",
   });
 
   return (
