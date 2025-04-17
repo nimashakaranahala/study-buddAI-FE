@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { uploadFiles } from '../api';
 import  useUserContext  from '../src/contexts/useUserContext';
+import GenerateQuiz from './GenerateQuiz';
 
 interface UploadFileProps {
   quiz_name?: string;
@@ -11,7 +12,6 @@ function UploadFile({ quiz_name }: UploadFileProps) {
   const [uploading, setUploading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
   
-  // Access the context
   const { loggedInUser } = useUserContext();
   const currentUser = loggedInUser.user_id.toString();
 
@@ -49,7 +49,7 @@ function UploadFile({ quiz_name }: UploadFileProps) {
 
   return (
     <div>
-      <h2>Upload your study notes</h2>
+      <h3>Now upload your study notes</h3>
 
       <label htmlFor="file-upload">Upload PDF:</label>
       <input
@@ -59,11 +59,12 @@ function UploadFile({ quiz_name }: UploadFileProps) {
         onChange={handleFileChange}
         disabled={uploading}
         title="Choose a PDF file to upload"
-      />
+      /> <br />
       <button type="button" onClick={handleUpload} disabled={uploading}>
         {uploading ? 'Uploading...' : 'Upload'}
       </button>
       {message && <p>{message}</p>}
+      {message === "Upload successful!" && <GenerateQuiz/> }
     </div>
   );
 }

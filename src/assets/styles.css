@@ -54,7 +54,7 @@ footer {
     color: white;
     text-align: center;
     padding: 20px 0;
-    position: fixed; 
+    position:relative; /*can change back to fixed later*/
     bottom: 0;
     left: 0;
     width: 100%;

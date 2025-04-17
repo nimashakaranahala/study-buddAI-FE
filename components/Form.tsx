@@ -1,29 +1,31 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import UploadFile from "../components/UploadFile";
-import GenerateQuiz from "../components/GenerateQuiz";
 import { UserContext } from "../src/contexts/User";
-
 
 function Form() {
   const [quizName, setQuizName] = useState("");
   const loggedInUser = useContext(UserContext)
   if(!loggedInUser) {
-    return 
+    return
   }
 
   return (
     <>
-    <h1>Hello from quizform</h1>
+    <h1>Ready to test yourself?</h1>
         <fieldset className="quiz-form">
-          <legend>PDF Upload</legend>
+          <legend>Enter a name for this Quiz</legend>
           <form action="" method="post">
-            <label htmlFor="quiz-name">Quiz Name</label>
-            <input 
-            type="text" 
-            id="quiz-name" 
-            onChange={(event)=> setQuizName(event.target.value)}/>
-            <UploadFile quiz_name={quizName} />
-            <GenerateQuiz />
+            <label htmlFor="quiz-name">
+              <input 
+                type="text" 
+                id="quiz-name" 
+                placeholder="Ex. Science" 
+                value={quizName}
+                onChange={(event)=> setQuizName(event.target.value)}
+              />
+            </label>
+           { quizName && <UploadFile quiz_name={quizName} />}
+           
           </form>
         </fieldset>
   </>
