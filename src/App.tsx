@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import Landingpage from '../components/LandingPage';
 import Login from '../components/Login'
 import CreateAccount from '../components/CreateAccount'
+import UploadFile from '../components/UploadFile'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/homepage" element={<Homepage />} />
           <Route path="/createaccount" element={<CreateAccount/>} />
           <Route path="/login" element={<Login />} />
+          <Route path="/file/upload" element={<UploadFile />} />
         </Routes>
         <Footer /> 
       </div>
