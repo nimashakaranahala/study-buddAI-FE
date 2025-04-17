@@ -8,10 +8,12 @@ import Login from '../components/Login'
 import CreateAccount from '../components/CreateAccount'
 import Questions from '../components/Questions'
 import Results from "../components/Results"
+import {UserProvider} from "./contexts/User"
 
 function App() {
   return (
     <>
+     <UserProvider>
     <header>
       <title>Study BuddAI</title>
     </header>
@@ -27,6 +29,7 @@ function App() {
         </Routes>
         <Footer /> 
       </div>
+      </UserProvider>
     </>
   );
 }
