@@ -1,26 +1,34 @@
-import { useState } from "react";
-import UploadFile from '../components/UploadFile'
-import GenerateQuiz from
+import React, { useContext, useState } from "react";
+import UploadFile from "../components/UploadFile";
+import GenerateQuiz from "../components/GenerateQuiz";
+import { UserContext } from "../src/contexts/User";
 
 
-function getQuizByUserId({user_id}){
-const [quizName, setQuizName] = useState("")
+function Form() {
+  const [quizName, setQuizName] = useState("");
+  const loggedInUser = useContext(UserContext)
+  if(!loggedInUser) {
+    return 
+  }
 
-
-return (
+  return (
     <>
-    <fieldset>
-        <legend>PDF Upload</legend>
-    <form action="" method="post">
-    <label htmlFor="quiz-name">Quiz Name</label>
-    <UploadFile 
-    quiz_name={quiz_name}
-    user_id = {user_id}
-    />
-    <GenerateQuiz/>
-    </form>
-    </fieldset>
-    </>
-)
-
+    <h1>Hello from quizform</h1>
+        <fieldset className="quiz-form">
+          <legend>PDF Upload</legend>
+          <form action="" method="post">
+            <label htmlFor="quiz-name">Quiz Name</label>
+            <input 
+            type="text" 
+            id="quiz-name" 
+            onChange={(event)=> setQuizName(event.target.value)}/>
+            <UploadFile quiz_name={quizName} />
+            <GenerateQuiz />
+          </form>
+        </fieldset>
+  </>
+  );
 }
+
+
+export default Form
