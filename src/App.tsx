@@ -7,6 +7,7 @@ import Landingpage from '../components/LandingPage';
 import Login from '../components/Login'
 import CreateAccount from '../components/CreateAccount'
 import Questions from '../components/Questions'
+import Results from "../components/Results"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/createaccount" element={<CreateAccount/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/questions" element={<Questions />} />
+          <Route path="/results" element={<Results />} />
         </Routes>
         <Footer /> 
       </div>
