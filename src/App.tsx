@@ -7,10 +7,15 @@ import Landingpage from '../components/LandingPage';
 import Login from '../components/Login'
 import CreateAccount from '../components/CreateAccount'
 import UploadFile from '../components/UploadFile'
+import Questions from '../components/Questions'
+import Results from "../components/Results"
+import {UserProvider} from "./contexts/User"
+
 
 function App() {
   return (
     <>
+     <UserProvider>
     <header>
       <title>Study BuddAI</title>
     </header>
@@ -22,9 +27,13 @@ function App() {
           <Route path="/createaccount" element={<CreateAccount/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/files/upload" element={<UploadFile />} />
+          <Route path="/questions" element={<Questions />} />
+          <Route path="/results" element={<Results />} />
+
         </Routes>
         <Footer /> 
       </div>
+      </UserProvider>
     </>
   );
 }
