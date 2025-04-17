@@ -1,0 +1,41 @@
+
+
+ul {
+    margin: 0px;
+    padding: 0px;
+  
+}
+
+.question-option-card {
+  background-color: white;
+  color: black;
+  margin: 8px;
+  display: flex;
+  gap: 20px;
+  border-radius: 15px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+
+
+.option-list {
+  list-style: none;
+}
+
+p {
+  margin: 0px;
+}
+
+
+.selected {
+    background-color: #3995e1; /* green background */
+    color: white; /* white text */
+    font-weight: bold;
+
+  }
+
+
+  .question-option-card:hover {
+    background-color: #2e73ac;
+  }
