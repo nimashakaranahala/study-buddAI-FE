@@ -1,5 +1,4 @@
-import React from 'react';
-// import type {} from 'react/jsx-runtime';
+// import React from 'react';
 import { useState } from 'react'; 
 import { uploadFiles } from '../api';
 
@@ -13,12 +12,11 @@ function UploadFile() {
             setFile(event.target.files[0])
         }
     }
-    setUploading(true)
-    setMessage('')
-
+  
     const handleUpload = async ()=> {
         if(!file) {
             setMessage('No file selected')
+            
             return
         }
    
@@ -38,7 +36,7 @@ function UploadFile() {
     }
   };
 
-
+  console.log("UploadFile component rendered");
 return (
     <div>
       <h2>Upload your study notes</h2>

@@ -21,7 +21,7 @@ function App() {
           <Route path="/homepage" element={<Homepage />} />
           <Route path="/createaccount" element={<CreateAccount/>} />
           <Route path="/login" element={<Login />} />
-          <Route path="/file/upload" element={<UploadFile />} />
+          <Route path="/files/upload" element={<UploadFile />} />
         </Routes>
         <Footer /> 
       </div>
