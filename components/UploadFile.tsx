@@ -21,7 +21,7 @@ function UploadFile() {
         }
    
     const formData = new FormData()
-    formData.append('pdf', file)
+    formData.append('file', file)
 
     try {
       setUploading(true);
@@ -40,7 +40,7 @@ function UploadFile() {
 return (
     <div>
       <h2>Upload your study notes</h2>
-      <form action="" method="post">
+    
       <label htmlFor="file-upload">Upload PDF:</label>
       <input
         id="file-upload"
@@ -54,7 +54,9 @@ return (
         {uploading ? 'Uploading...' : 'Upload'}
       </button>
       {message && <p>{message}</p>}
-      </form>
+
+      
+     
     </div>
   );
 };

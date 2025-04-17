@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const api = axios.create({
-    baseURL: 'http://localhost:8080/api'
-})
+// const port = 8080
+// const api = axios.create({
+//     baseURL: `http://localhost:${port}/api`
+// })
 
 function uploadFiles(formData:FormData) {
-    return api.post("/files/upload", formData, {
+    return axios.post('http://localhost:8080/files/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         }
