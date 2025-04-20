@@ -10,7 +10,7 @@ import Form from '../components/Form'
 import Questions from '../components/Questions'
 import Results from "../components/Results"
 import {UserProvider} from "./contexts/User"
-import Nav from '../components/Nav'
+//import Nav from '../components/Nav'
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
     </header>
       <div>
         <Header />
-        <Nav/>
+        
         <Routes>
           <Route path="/" element={<Landingpage />} />
           <Route path="/homepage" element={<Homepage />} />
