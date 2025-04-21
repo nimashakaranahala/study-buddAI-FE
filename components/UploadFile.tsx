@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { uploadFiles } from "../api";
 import useUserContext from "../src/contexts/useUserContext";
 import GenerateQuiz from "./GenerateQuiz";
@@ -17,6 +17,15 @@ function UploadFile({ quiz_name }: UploadFileProps) {
   const { loggedInUser } = useUserContext();
   const currentUser = loggedInUser.user_id.toString();
 
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage("")
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [message])
+  
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       setFile(event.target.files[0]);
@@ -51,6 +60,7 @@ function UploadFile({ quiz_name }: UploadFileProps) {
 
   if(uploading) return <Lottie animationData={animation} loop={true} autoplay={true} className="loading-animation" />;
 
+  
   return (
     <div className="upload-container">
       <h3 className="upload-title">2. Upload your notes</h3>
