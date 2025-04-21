@@ -4,33 +4,54 @@ import { UserContext } from "../src/contexts/User";
 
 function Form() {
   const [quizName, setQuizName] = useState("");
-  const loggedInUser = useContext(UserContext)
-  if(!loggedInUser) {
-    return
-  }
+  const loggedInUser = useContext(UserContext);
+  if (!loggedInUser) return null;
 
   return (
     <>
-    <h1>Ready to test yourself?</h1>
-        <fieldset className="quiz-form">
-          <legend>Enter a name for this Quiz</legend>
-          <form action="" method="post">
-            <label htmlFor="quiz-name">
-              <input 
-                type="text" 
-                id="quiz-name" 
-                placeholder="Ex. Science" 
-                value={quizName}
-                onChange={(event)=> setQuizName(event.target.value)}
-              />
-            </label>
-           { quizName && <UploadFile quiz_name={quizName} />}
-           
-          </form>
-        </fieldset>
-  </>
+      <div className="header-container">
+      <div className="profile-container">
+          <img
+            src="../src/assets/profile-silouette.jpeg"
+            alt="profile"
+            className="profile-pic"
+          />
+      </div>
+      <div className="logo-container">
+            <img
+              src="../src/assets/logo.png"
+              alt="logo"
+              className="small-logo"
+            />
+          </div>
+          
+
+        <div className="form-card">
+
+          <fieldset className="form-fieldset">
+            <legend className="form-legend">1. Enter a name for this quiz</legend>
+
+            <form action="" method="post">
+              <label htmlFor="quiz-name">
+                <input
+                  type="text"
+                  className="input-text"
+                  placeholder="Ex. Science"
+                  value={quizName}
+                  onChange={(event) => setQuizName(event.target.value)}
+                />
+              </label>
+              {quizName && (
+                <div className="upload-section">
+                  <UploadFile quiz_name={quizName} />
+                </div>
+              )}
+            </form>
+          </fieldset>
+        </div>
+      </div>
+    </>
   );
 }
 
-
-export default Form
+export default Form;

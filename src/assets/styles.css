@@ -117,3 +117,217 @@ footer {
     width: 200px;
     height: 200px;
   }
+
+
+  /* UPLOAD AND QUIZ FORM STYLING */
+  * {
+    box-sizing: border-box;
+  }
+  
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #163F62;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* header */
+.form-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.small-logo {
+  height: 50px;
+}
+
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* form card */
+.form-card {
+  background: white;
+  padding: 50px;
+  margin: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-fieldset {
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-legend {
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0 10px;
+  color: #0e2a45;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.upload-label{
+  color: #ffffff;
+  font-size: 15px;
+  border: 2px solid black;
+  background-color: #0e2a45;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.input-text {
+  width: 100%;
+  font-weight: 500;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+/* upload file */
+.upload-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.upload-title {
+  margin-bottom: 10px;
+  color: #0e2a45;
+}
+
+.file-input {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+.hide-file-input {
+  display: none;
+}
+.custom-file-label {
+  display: inline-block;
+  background-color: #AA5486;
+  color: rgb(0, 0, 0);
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.custom-file-label:hover {
+  background-color: #8e3e6c;
+}
+
+.selected-file-name {
+  margin-top: 8px;
+  font-style: italic;
+  color: #444;
+}
+
+.upload-btn {
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.upload-btn:disabled {
+  background-color: #aaa;
+}
+
+.upload-msg {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.success {
+  color: #28a745; /* Green */
+}
+
+.error {
+  color: #dc3545; /* Red */
+}
+
+/* generate quiz btn */
+.generate-container {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.generate-title {
+  margin-bottom: 10px;
+}
+
+.generate-btn {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+  .form-btn {
+    padding: 10px;
+  }
+
+  .small-logo {
+    height: 40px;
+  }
+
+  .profile-pic {
+    height: 35px;
+    width: 35px;
+  }
+}
