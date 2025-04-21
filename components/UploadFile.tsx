@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { uploadFiles } from "../api";
 import useUserContext from "../src/contexts/useUserContext";
 import GenerateQuiz from "./GenerateQuiz";
+import animation from "../src/assets/loading.json"
+import Lottie from "lottie-react"
 
 interface UploadFileProps {
   quiz_name?: string;
@@ -46,6 +48,8 @@ function UploadFile({ quiz_name }: UploadFileProps) {
       setUploading(false);
     }
   };
+
+  if(uploading) return <Lottie animationData={animation} loop={true} autoplay={true} className="loading-animation" />;
 
   return (
     <div className="upload-container">

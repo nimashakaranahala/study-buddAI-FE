@@ -166,7 +166,7 @@ body {
 }
 
 .small-logo {
-  height: 50px;
+  height: 70px;
 }
 
 .profile-pic {
@@ -290,11 +290,11 @@ body {
 }
 
 .success {
-  color: #28a745; /* Green */
+  color: #28a745; 
 }
 
 .error {
-  color: #dc3545; /* Red */
+  color: #dc3545; 
 }
 
 /* generate quiz btn */
@@ -305,6 +305,7 @@ body {
 
 .generate-title {
   margin-bottom: 10px;
+  color: #0e2a45;
 }
 
 .generate-btn {
@@ -316,18 +317,8 @@ body {
   cursor: pointer;
 }
 
-
 @media (max-width: 600px) {
   .form-btn {
     padding: 10px;
-  }
-
-  .small-logo {
-    height: 40px;
-  }
-
-  .profile-pic {
-    height: 35px;
-    width: 35px;
   }
 }
