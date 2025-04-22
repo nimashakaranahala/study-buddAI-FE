@@ -33,6 +33,15 @@ async function getQuestionOptions(
   return response.data.questionOptions;
 }
 
+
+function getResults (attempt_id: any) {
+  return axios.get(`http://localhost:8080/api/attempt/${attempt_id}/submit`)
+}
+
+
+
+
+
 async function getQuizQuestions(
   quiz_id: number
 ): Promise<QuizQuestion[]> {
@@ -46,4 +55,5 @@ async function getQuizQuestions(
 
 
 
-export { uploadFiles, getQuestionOptions, getQuizQuestions };
+export { uploadFiles, getQuestionOptions, getQuizQuestions, getResults };
+
