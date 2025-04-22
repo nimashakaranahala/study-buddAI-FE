@@ -23,10 +23,16 @@ function Nav() {
     <>
       <div>
         <SignedOut>
-          <SignInButton mode="modal" redirectUrl="/homepage">
+          <SignInButton {...({
+    mode: "modal",
+    redirectUrl: "/homepage",
+  } as any)}>
             <button>Sign In</button>
           </SignInButton>
-          <SignUpButton mode="modal" redirectUrl="/homepage">
+          <SignUpButton {...({
+    mode: "modal",
+    redirectUrl: "/homepage",
+  } as any)}>
             <button>Sign Up</button>
           </SignUpButton>
         </SignedOut>
