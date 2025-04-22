@@ -30,9 +30,9 @@ const Questions: React.FC = () => {
       .then((data) => {
         setQuizQuestions(data);
       })
-      .catch((err) => {
+      .catch(() => {
         setError("Failed to load quiz questions.");
-        console.error(err);
+   
       });
   }, []);
 

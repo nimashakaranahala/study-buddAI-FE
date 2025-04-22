@@ -17,13 +17,7 @@ function Form() {
             className="profile-pic"
           />
       </div>
-      <div className="logo-container">
-            <img
-              src="../src/assets/logo.png"
-              alt="logo"
-              className="small-logo"
-            />
-          </div>
+ 
           
 
         <div className="form-card">

@@ -12,15 +12,14 @@ const Header: React.FC = () => {
     return <h1 className="title">Study BuddAI LOGO</h1>;
   }
 
-  const { loggedInUser } = context;
+  // const { loggedInUser } = context;
 
   return (
-    <>
-      {/* <h1 className="title">Study BuddAI LOGO</h1> */}
+    <div className="heading">
       <img className="logo" src="../src/assets/logo.png" />
-      <h2>Welcome {loggedInUser.username}</h2>
+      {/* <h2>Welcome {loggedInUser.username}</h2> */}
       {/* <Nav /> */}
-    </>
+    </div>
   );
 };
 

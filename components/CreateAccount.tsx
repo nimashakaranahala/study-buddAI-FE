@@ -1,16 +1,11 @@
+
 import React from 'react';
+import { SignUp } from '@clerk/clerk-react';
 
-interface CreateAccountProps {}
-
-const CreateAccount: React.FC<CreateAccountProps> = () => {
+const CreateAccount: React.FC = () => {
   return (
     <div>
-      <h2>Create Account</h2>
-      {/* Add your create account form or content here */}
-      <button onClick={() => console.log('Create Account Submit')}>
-        Create Accountt
-      </button>
-      <p>Already have an account? <a href="/login">Login</a></p>
+      <SignUp redirectUrl="/login" />
     </div>
   );
 };
