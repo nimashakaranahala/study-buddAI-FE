@@ -45,5 +45,24 @@ async function getQuizQuestions(
 // }
 
 
+ const generateQuiz = async ({
+  user_id,
+  quiz_name,
+  file_id,
+}: {
+  user_id: number;
+  quiz_name: string;
+  file_id: number;
+}) => {
+  try {
+    const response = await axios.post(`http://localhost:8080/api/users/${user_id}/generate_quiz`, {
+      quiz_name,
+      file_id,
+    });
+    return response.data;
+  } catch (error) {
+    console.error('API Error:', error);
+  }
+};
 
-export { uploadFiles, getQuestionOptions, getQuizQuestions };
+export { uploadFiles, getQuestionOptions, getQuizQuestions, generateQuiz };

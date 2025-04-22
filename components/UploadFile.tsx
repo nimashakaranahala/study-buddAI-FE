@@ -6,13 +6,14 @@ import animation from "../src/assets/loading.json"
 import Lottie from "lottie-react"
 
 interface UploadFileProps {
-  quiz_name?: string;
+  quizName?: string;
 }
 
-function UploadFile({ quiz_name }: UploadFileProps) {
+function UploadFile({ quizName }: UploadFileProps) {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState<boolean>(false);
   const [message, setMessage] = useState<string>("");
+  const [fileId, setFileId] = useState<number | null>(null)
 
   const { loggedInUser } = useUserContext();
   const currentUser = loggedInUser.user_id.toString();
@@ -41,14 +42,15 @@ function UploadFile({ quiz_name }: UploadFileProps) {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("user_id", currentUser);
-    if (quiz_name) {
-      formData.append("quiz_name", quiz_name);
+    if (quizName) {
+      formData.append("quiz_name", quizName);
     }
 
     try {
       setUploading(true);
       setMessage("");
-      await uploadFiles(formData);
+      const response = await uploadFiles(formData);
+      setFileId(response.data.file_id)
       setMessage("Upload successful!");
     } catch (error) {
       console.error(error);
@@ -94,7 +96,7 @@ function UploadFile({ quiz_name }: UploadFileProps) {
           {message}
         </p>
       )}
-      {message === "Upload successful!" && <GenerateQuiz />}
+      {message === "Upload successful!" && <GenerateQuiz fileId={fileId} quizName={quizName} />}
     </div>
   );
 }

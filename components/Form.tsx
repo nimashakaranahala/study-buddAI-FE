@@ -43,7 +43,7 @@ function Form() {
               </label>
               {quizName && (
                 <div className="upload-section">
-                  <UploadFile quiz_name={quizName} />
+                  <UploadFile quizName={quizName} />
                 </div>
               )}
             </form>
