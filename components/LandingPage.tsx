@@ -9,9 +9,9 @@ const LandingPage: React.FC<LandingPageProps> = () => {
   return (
     <div>
   
-      <main>
+      
         <AccountSection />
-      </main>
+   
 
     </div>
   );
