@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import UploadFile from "../components/UploadFile";
 import { UserContext } from "../src/contexts/User";
+import NavBarOtherPages from "./NavBarOtherPages"
 
 function Form() {
   const [quizName, setQuizName] = useState("");
@@ -9,6 +10,7 @@ function Form() {
 
   return (
     <>
+     <NavBarOtherPages />
       <div className="header-container">
       <div className="profile-container">
           <img
