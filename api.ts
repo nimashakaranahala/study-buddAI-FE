@@ -14,6 +14,13 @@ type QuizQuestion  = {
   question_body: string;
 }
 
+type AttemptAnswer  = {
+  attempt_answer_id: number;
+  question_id : number,
+  attempt_id : number
+  question_options_id: number,
+}
+
 const api = axios.create({
   baseURL: `http://56.228.19.82:8080/api`,
 });
@@ -40,10 +47,20 @@ async function getQuizQuestions(
   return response.data.questions;
 }
 
-// async function postAttemptAnswer(): {
+ async function postAttemptAnswer(question_options_id: number,
+  question_id : number,
+  attempt_id : number): Promise<AttemptAnswer[]> {
+    const attemptAnswerRequest = {
+      question_options_id: question_options_id,
+      question_id: question_id,
+      attempt_id: attempt_id,
+    };
 
-// }
+    const response = await api.post(`/attempt_answer`, attemptAnswerRequest)
+    return response.data.attemptAnswer;
+  
+ }
 
 
 
-export { uploadFiles, getQuestionOptions, getQuizQuestions };
+export { uploadFiles, getQuestionOptions, getQuizQuestions, postAttemptAnswer };
