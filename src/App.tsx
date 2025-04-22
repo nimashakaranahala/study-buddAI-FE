@@ -20,9 +20,9 @@ function App() {
     <header>
       <title>Study BuddAI</title>
     </header>
-      <div>
+     
         <Header />
-
+        <main>
         <Routes>
           <Route path="/" element={<Landingpage />} />
           <Route path="/homepage" element={
@@ -41,8 +41,9 @@ function App() {
           <Route path="/questions" element={<Questions />} />
           <Route path="/results" element={<Results />} />
         </Routes>
+        </main>
         <Footer /> 
-      </div>
+  
       </UserProvider>
     </>
   );
