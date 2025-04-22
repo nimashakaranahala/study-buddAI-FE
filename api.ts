@@ -9,13 +9,28 @@ type QuestionOption = {
 };
 
 type QuizQuestion  = {
-  question_id: string;
+  question_id: number;
   quiz_id: number;
   question_body: string;
 }
 
+type ResultAnswer = {
+  question_body: string;
+  attempted_answer: string;
+  correct_answer: string;
+}
+
+type ResultsData = {
+  questions: ResultAnswer[];
+  score: number;
+}
+
+
+
+
+
 const api = axios.create({
-  baseURL: `http://56.228.19.82:8080/api`,
+  baseURL: `http://3.85.128.114:8080/api`,
 });
 
 function uploadFiles(formData: FormData) {
@@ -34,12 +49,11 @@ async function getQuestionOptions(
 }
 
 
-function getResults (attempt_id: any) {
-  return axios.get(`http://localhost:8080/api/attempt/${attempt_id}/submit`)
+async function getResults (attempt_id: number) : Promise<ResultsData> {
+  const response = await  api.get(`/attempt/${attempt_id}/submit`);
+
+  return response.data.result;
 }
-
-
-
 
 
 async function getQuizQuestions(

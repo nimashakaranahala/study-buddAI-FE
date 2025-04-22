@@ -1,71 +1,52 @@
-import React from "react";
-import ResultCard from "./ResultCard"
+import React, { useEffect, useState } from "react";
+import ResultCard from "./ResultCard";
+import { getResults } from "../api";
 
-import {useEffect} from 'react';
-import getResults from '../api'
+interface ResultAnswer {
+  question_body: string;
+  attempted_answer: string;
+  correct_answer: string;
+}
 
-// function Results() {
+interface ResultsData {
+  questions: ResultAnswer[];
+  score: number;
+}
 
-//   useEffect(() => {
-//     getResults().then(() => {
+const Results: React.FC = () => {
+  const [results, setResults] = useState<ResultsData | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [answers, setAnswers] = useState<ResultAnswer[] | null>(null);
 
-//     }) 
-    
-//   })
+  //update with real attempt_id  passed in
+  const attempt_id = 1;
 
+  useEffect(() => {
+    getResults(attempt_id)
+      .then((data) => {
+        console.log(data);
+        setResults(data);
+        console.log(results);
+        setAnswers(data.questions);
+      })
+      .catch(() => {
+        setError("Failed to load results.");
+      });
+  }, []);
 
-// }
+  return (
+    <div>
+      <h2>Quiz Results</h2>
+      {results && <h3>Your score is {results.score * 100}%!</h3>}
+      {error && <p>{error}</p>}
 
-// const results = {
-//     questions: [
-//       {
-//         question_body: "What is the chemical symbol for water?",
-//         attempted_answer: "H2O",
-//         correct_answer: "H2O",
-//       },
-//       {
-//         question_body: "How many planets are in our solar system?",
-//         attempted_answer: "Nine",
-//         correct_answer: "Eight",
-//       },
-//       {
-//         question_body: "Who was the first Roman Emperor?",
-//         attempted_answer: "Nero",
-//         correct_answer: "Augustus",
-//       },
-//       {
-//         question_body: "What is 2 + 2?",
-//         attempted_answer: "3",
-//         correct_answer: "4",
-//       },
-//     ],
-//     score: 0.25,
-//   };
-
-interface ResultProps {}
-
-// const answers = results.questions;
-
-
-
-// const score = results.score * 100;
-
- const Results: React.FC<ResultProps> = () => {
-   return (
-  <div>
-{/* //       <h2>Quiz Results</h2>
-//       <h3>Your score is {score}%!</h3>
-//       <ul className="results-list">
-//         {
-//             answers.map((answer) => {
-//                 return <ResultCard answer={answer}/>
-//             })
-//         }
-        
-//       </ul> */}
-
+      <ul className="results-list">
+        {answers?.map((answer, index) => (
+          <ResultCard key={index} answer={answer} />
+        ))}
+      </ul>
     </div>
-   );
+  );
 };
 
 export default Results;
