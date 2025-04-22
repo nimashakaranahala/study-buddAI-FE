@@ -39,7 +39,7 @@ const Results: React.FC = () => {
 
     <div className="results">
 
-    <>
+
     <NavBarOtherPages />
     <div>
 
@@ -53,7 +53,7 @@ const Results: React.FC = () => {
         ))}
       </ul>
     </div>
-    </>
+    </div>
   );
 };
 
