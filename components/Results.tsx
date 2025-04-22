@@ -37,7 +37,7 @@ const score = results.score * 100;
 
 const Results: React.FC<ResultProps> = () => {
   return (
-    <div>
+    <div className="results">
       <h2>Quiz Results</h2>
       <h3>Your score is {score}%!</h3>
       <ul className="results-list">
