@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ResultCard from "./ResultCard";
 import { getResults } from "../api";
+import NavBarOtherPages from "./NavBarOtherPages"
 
 interface ResultAnswer {
   question_body: string;
@@ -35,7 +36,13 @@ const Results: React.FC = () => {
   }, []);
 
   return (
+
     <div className="results">
+
+    <>
+    <NavBarOtherPages />
+    <div>
+
       <h2>Quiz Results</h2>
       {results && <h3>Your score is {results.score * 100}%!</h3>}
       {error && <p>{error}</p>}
@@ -46,6 +53,7 @@ const Results: React.FC = () => {
         ))}
       </ul>
     </div>
+    </>
   );
 };
 

@@ -95,7 +95,9 @@ main {
 }
 
 .nav-bar li button:hover {
-  background-color: #163f62;
+
+  background-color: #152635; 
+
 }
 
 /* footer */
@@ -461,6 +463,46 @@ button {
   font-size: 1em;
   transition: background-color 0.3s ease;
   margin: 10px 0;
+}
+/* 
+Na-Bar-other-pages */
+
+.nav-bar-top {
+  background-color: #163F62;
+  padding: 10px 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.nav-bar-top ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nav-bar-top li {
+  display: inline-block;
+}
+
+.nav-bar-top a {
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-bar-top a:hover {
+  background-color: #266dab;
 }
 
 .question {

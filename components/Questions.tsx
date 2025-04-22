@@ -8,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import animation from "../src/assets/loading.json";
 import Lottie from "lottie-react";
+import NavBarOtherPages from "./NavBarOtherPages"
 
 interface QuestionOption {
   question_options_id: number;
@@ -135,6 +136,8 @@ const Questions: React.FC = () => {
   const progress = (currentQuestionIndex+1)/(quizQuestions.length)
 
   return (
+    <>  
+    <NavBarOtherPages />
     <div>
       <h2>Choose the correct answer</h2>
       <div className="progress">
@@ -175,6 +178,7 @@ const Questions: React.FC = () => {
 
 </div>
     </div>
+    </>
   );
 };
 
