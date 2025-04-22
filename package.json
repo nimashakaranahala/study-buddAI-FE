@@ -12,6 +12,7 @@
   "dependencies": {
     "@clerk/clerk-react": "^5.29.0",
     "axios": "^1.8.4",
+    "bootstrap": "^5.3.5",
     "lottie-react": "^2.4.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

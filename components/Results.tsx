@@ -36,9 +36,13 @@ const Results: React.FC = () => {
   }, []);
 
   return (
+
+    <div className="results">
+
     <>
     <NavBarOtherPages />
     <div>
+
       <h2>Quiz Results</h2>
       {results && <h3>Your score is {results.score * 100}%!</h3>}
       {error && <p>{error}</p>}
