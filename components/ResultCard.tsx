@@ -19,7 +19,7 @@ const ResultCard: React.FC<ResultCardProps> = ({ answer }) => {
       ) : (
         <div>
           <p className="wrong-answer">X {answer.attempted_answer}</p>
-          <p>{answer.correct_answer}</p>
+          <p className="answer">{answer.correct_answer}</p>
         </div>
       )}
     </li>
