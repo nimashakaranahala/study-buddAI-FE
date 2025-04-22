@@ -1,15 +1,11 @@
+
 import React from 'react';
+import { SignIn } from '@clerk/clerk-react';
 
-interface LoginProps {}
-
-const Login: React.FC<LoginProps> = () => {
+const Login: React.FC = () => {
   return (
-    <div>
-      <h2>Login</h2>
-      {/* Add your login form or content here */}
-      <button onClick={() => console.log('Login Submit')}>Login</button>
-      
-      <p>Don't have an account?  <a href="/createaccount">Create Account</a></p>
+    <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center" }}>
+      <SignIn redirectUrl="/homepage" />
     </div>
   );
 };

@@ -1,18 +1,13 @@
 
 import React from 'react';
 import AccountSection from './AccountSection';
-import '../src/assets/styles.css'
 
-interface LandingPageProps {}
-
-const LandingPage: React.FC<LandingPageProps> = () => {
+const LandingPage: React.FC = () => {
   return (
     <div>
-  
       <main>
         <AccountSection />
       </main>
-
     </div>
   );
 };
