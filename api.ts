@@ -13,5 +13,10 @@ function uploadFiles(formData:FormData) {
     })
 }
 
+function getResults (attempt_id: any) {
+  return axios.get(`http://localhost:8080/api/attempt/${attempt_id}/submit`)
+}
 
-export { uploadFiles }
+
+
+export default { uploadFiles, getResults }
