@@ -110,15 +110,15 @@ const Questions: React.FC = () => {
     }
 
     postAttemptAnswer(selectedOptionId, questionId, attempt_id)
-      .then((addedAttemptAnswer) => {
-        console.log(addedAttemptAnswer);
+      .then(() => {
+    
+        window.location.href = "/results";
       })
       .catch(() => {
         setAttemptError("You answer failed to submit, please try again!");
-      })
-      .finally(() => {
         setAttemptLoading(false);
-      });
+      })
+     
   };
 
   if (attemptLoading)
@@ -132,11 +132,22 @@ const Questions: React.FC = () => {
     );
 
   const currentQuestion = quizQuestions[currentQuestionIndex];
+  const progress = (currentQuestionIndex+1)/(quizQuestions.length)
 
   return (
     <div>
       <h2>Choose the correct answer</h2>
-
+      <div className="progress">
+      <div
+  className="progress-bar progress-bar-striped"
+  role="progressbar"
+  style={{ width: `${progress * 100}%` }}
+  aria-valuenow={progress * 100}
+  aria-valuemin="0"
+  aria-valuemax="100"
+></div>
+</div>
+<div className="question">
       <h3>{currentQuestion?.question_body || "Loading..."}</h3>
 
       <ul className="option-list">
@@ -157,10 +168,12 @@ const Questions: React.FC = () => {
       {currentQuestionIndex < quizQuestions.length - 1 ? (
         <button onClick={handleNextQuestion}>Next</button>
       ) : (
-        <Link to={"/results"}>
+       
           <button onClick={handleCompleteQuiz}>Complete Quiz</button>
-        </Link>
+        
       )}
+
+</div>
     </div>
   );
 };
