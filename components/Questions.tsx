@@ -1,81 +1,114 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import OptionCard from "./OptionCard";
-import { useState } from "react";
+import { getQuestionOptions, getQuizQuestions } from "../api";
+import { Link } from "react-router-dom";
 
-interface QuestionsProps {}
+interface QuestionOption {
+  question_options_id: number;
+  question_id: number;
+  option_body: string;
+  is_correct: number;
+  label: string;
+}
 
-// to be replaced by api call
-const questionOptions = [
-  {
-    question_options_id: 5,
-    question_id: 2,
-    option_body: "Eight",
-    is_correct: 1,
-    label: "A",
-  },
-  {
-    question_options_id: 6,
-    question_id: 2,
-    option_body: "Nine",
-    is_correct: 0,
-    label: "B",
-  },
-  {
-    question_options_id: 7,
-    question_id: 2,
-    option_body: "Seven",
-    is_correct: 0,
-    label: "C",
-  },
-  {
-    question_options_id: 8,
-    question_id: 2,
-    option_body: "Ten",
-    is_correct: 0,
-    label: "D",
-  },
-];
+interface QuizQuestion {
+  question_id: number;
+  quiz_id: number;
+  question_body: string;
+}
 
-const Questions: React.FC<QuestionsProps> = () => {
+const Questions: React.FC = () => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
+  const [questionOptions, setQuestionOptions] = useState<QuestionOption[]>([]);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null);
+  const [errorQuestion, setQuestionError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // fetch question options
+  useEffect(() => {
+    getQuizQuestions(1)
+      .then((data) => {
+        setQuizQuestions(data);
+      })
+      .catch((err) => {
+        setError("Failed to load quiz questions.");
+        console.error(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    const question = quizQuestions[currentQuestionIndex];
+    if (!question) return;
+
+    getQuestionOptions(question.question_id)
+      .then((data) => {
+        setQuestionOptions(data);
+        setSelectedOptionId(null);
+        setError(null);
+      })
+      .catch((err) => {
+        setError("Failed to load question options.");
+        console.error(err);
+      });
+  }, [quizQuestions, currentQuestionIndex]);
 
   const handleSelectOption = (optionId: number) => {
-    console.log("selected", optionId);
-    setError(null);
+    setQuestionError(null);
     setSelectedOptionId(optionId);
   };
 
   const handleNextQuestion = () => {
     if (selectedOptionId === null) {
-      setError("You must select an option");
+      setQuestionError("You must select an option");
+      return;
     }
 
-    // post the attempt answer
-    // fetch question for next option
-    // set the selected option back to null
+    // post selected answer here if needed
+
+    if (currentQuestionIndex < quizQuestions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
   };
+
+  const handleCompleteQuiz = () => {
+    if (selectedOptionId === null) {
+      setQuestionError("You must select an option");
+      return;
+    }
+
+    // post final answer
+    console.log("Quiz completed");
+    // redirect or show results
+  };
+
+  const currentQuestion = quizQuestions[currentQuestionIndex];
 
   return (
     <div>
       <h2>Questions Test</h2>
-      <h3>Question body to go here </h3>
+      <h3>{currentQuestion?.question_body || "Loading..."}</h3>
+
       <ul className="option-list">
-        {questionOptions.map((option) => {
-          return (
-            <OptionCard
-              key={option.question_options_id}
-              option={option}
-              isSelected={selectedOptionId === option.question_options_id}
-              onSelect={handleSelectOption}
-            />
-          );
-        })}
-        {error ? <p>{error}</p> : null}
-        <button onClick={handleNextQuestion}>Next</button>
+        {questionOptions.map((option) => (
+          <OptionCard
+            key={option.question_options_id}
+            option={option}
+            isSelected={selectedOptionId === option.question_options_id}
+            onSelect={handleSelectOption}
+          />
+        ))}
       </ul>
+
+      {errorQuestion && <p>{errorQuestion}</p>}
+      {error && <p>{error}</p>}
+
+      {currentQuestionIndex < quizQuestions.length - 1 ? (
+        <button onClick={handleNextQuestion}>Next</button>
+      ) : (
+        <Link to={"/results"}>
+          <button onClick={handleCompleteQuiz}>Complete Quiz</button>
+        </Link>
+      )}
     </div>
   );
 };

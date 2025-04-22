@@ -5,6 +5,7 @@ interface AccountSectionProps {}
 
 const AccountSection: React.FC<AccountSectionProps> = () => {
   return (
+   
     <section className="account-section">
       <Link to="/createaccount">
         <button>Create Account</button>
@@ -13,6 +14,7 @@ const AccountSection: React.FC<AccountSectionProps> = () => {
         <button>Login</button>
       </Link>
     </section>
+
   );
 };
 

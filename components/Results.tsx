@@ -1,20 +1,20 @@
-// import React from "react";
-// import ResultCard from "./ResultCard"
+import React from "react";
+import ResultCard from "./ResultCard"
 
 import {useEffect} from 'react';
 import getResults from '../api'
 
-function Results() {
+// function Results() {
 
-  useEffect(() => {
-    getResults().then(() => {
+//   useEffect(() => {
+//     getResults().then(() => {
 
-    }) 
+//     }) 
     
-  })
+//   })
 
 
-}
+// }
 
 // const results = {
 //     questions: [
@@ -42,7 +42,7 @@ function Results() {
 //     score: 0.25,
 //   };
 
-// interface ResultProps {}
+interface ResultProps {}
 
 // const answers = results.questions;
 
@@ -50,10 +50,10 @@ function Results() {
 
 // const score = results.score * 100;
 
-// const Results: React.FC<ResultProps> = () => {
-//   return (
-//     <div>
-//       <h2>Quiz Results</h2>
+ const Results: React.FC<ResultProps> = () => {
+   return (
+  <div>
+{/* //       <h2>Quiz Results</h2>
 //       <h3>Your score is {score}%!</h3>
 //       <ul className="results-list">
 //         {
@@ -62,10 +62,10 @@ function Results() {
 //             })
 //         }
         
-//       </ul>
+//       </ul> */}
 
-//     </div>
-//   );
-// };
+    </div>
+   );
+};
 
 export default Results;

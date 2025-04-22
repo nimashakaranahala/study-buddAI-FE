@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from "../src/contexts/User";
 
 
+
 const Header: React.FC = () => {
   // Access the context
   const context = useContext(UserContext);
@@ -14,11 +15,12 @@ const Header: React.FC = () => {
   const { loggedInUser } = context;
 
   return (
-    <>
-      <h1 className="title">Study BuddAI LOGO</h1>
-      <h2>Welcome {loggedInUser.username}</h2>
-      {/* <Nav /> */}
-    </>
+    <div className="heading">
+
+      <img className="logo" src="../src/assets/logo.png" />
+      {/* <h2>Welcome {loggedInUser.username}</h2> */}
+
+    </div>
   );
 };
 

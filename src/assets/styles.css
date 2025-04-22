@@ -1,28 +1,39 @@
 body {
+  
     font-family: sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
+    padding: 0px;
     background-color: #163F62;
-    color: white;
+    color: #163F62;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
   }
+
+  h2 {
+    color: white;
+  }
+
+  *{
+    color: #163F62;
+  }
   
   main {
-    max-width: 600px;
-    width: 100%;
-    padding: 30px;
+    max-width: 100%;
+   margin: 0px;
+    padding: 0px;
+
     background-color: white;
-    border-radius: 8px;
+
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .account-section {
-    background-color: #e9eff5;
-    padding: 20px;
+  
+align-items: center;
+
     border-radius: 8px;
     text-align: center;
   }
@@ -34,27 +45,71 @@ body {
   }
   
   .account-section button {
-    background-color: #0e2a45;
+    background-color: #163F62;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 999px;
+    padding: 10px;
+    width: 70%;
     cursor: pointer;
     font-size: 1em;
-    margin: 0 10px;
     transition: background-color 0.3s ease;
+    margin: 10px 0;
+
   }
   
   .account-section button:hover {
-    background-color: #163F62;
+    background-color: #266dab;
   }
+
+
+/* Home Nav */
+
+.nav-bar {
+
+  padding: 20px;           
+  border-radius: 8px;      
+  text-align: center;       
+  margin-bottom: 20px;     
+}
+
+.nav-bar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-bar li {
+  width: 100%;
+}
+
+
+.nav-bar li button {
+  background-color: #163F62;
+  color: white;
+  border-radius: 999px;
+  padding: 10px;
+  width: 70%;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  margin: 10px 0;
+}
+
+.nav-bar li button:hover {
+  background-color: #163F62; 
+}
 
 /* footer */
 footer {
     color: white;
     text-align: center;
     padding: 20px 0;
-    position: fixed; 
+    position:relative; /*can change back to fixed later*/
     bottom: 0;
     left: 0;
     width: 100%;
@@ -96,19 +151,282 @@ footer {
     background-color: #2e73ac;
   }
   
-  .correct-answer {
-    background-color: rgb(87, 184, 87);
-  }
-  
-  .wrong-answer {
-    background-color: lightcoral;
-  }
-  
-  .results-list li {
-    margin: 10px;
+ 
+
+  .logo {
+    width: 200px;
+    height: 200px;
   }
 
-  .results-list {
-    list-style: none;
+
+  /* UPLOAD AND QUIZ FORM STYLING */
+  * {
+    box-sizing: border-box;
   }
   
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #163F62;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* header */
+.form-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.small-logo {
+  height: 70px;
+}
+
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* form card */
+.form-card {
+  background: white;
+  padding: 50px;
+  margin: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-fieldset {
+  border: 2px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.form-legend {
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0 10px;
+  color: #0e2a45;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.upload-label{
+  color: #ffffff;
+  font-size: 15px;
+  border: 2px solid black;
+  background-color: #0e2a45;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 10px;
+}
+
+.input-text {
+  width: 100%;
+  font-weight: 800;
+  color: #0961b3;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* upload file */
+.upload-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.upload-title {
+  margin-bottom: 10px;
+  color: #0e2a45;
+  font-size: 1.1rem;
+}
+
+.file-input {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+.hide-file-input {
+  display: none;
+}
+.custom-file-label {
+  display: inline-block;
+  background-color: #AA5486;
+  color: rgb(0, 0, 0);
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.custom-file-label:hover {
+  background-color: #8e3e6c;
+}
+
+.selected-file-name {
+  margin-top: 8px;
+  font-style: italic;
+  color: #444;
+}
+
+.upload-btn {
+  background-color: #6a1b9a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.upload-btn:disabled {
+  background-color: #aaa;
+}
+
+.upload-msg {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.success {
+  color: #28a745; 
+}
+
+.error {
+  color: #dc3545; 
+}
+
+/* generate quiz btn */
+.generate-container {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.generate-title {
+  margin-bottom: 10px;
+  color: #0e2a45;
+  font-size: 1.1rem;
+}
+
+.generate-btn {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .form-btn {
+    padding: 10px;
+  }
+}
+
+
+
+.logo {
+  display: block;
+  margin: 0 auto;
+}
+
+main {
+  background-color: white;
+  /* clip-path: ellipse(75% 100% at 50% 100%);
+  padding: 20px 20px; */
+}
+
+#root {
+  width: 100%;
+}
+
+
+footer {
+  background-color: white;
+  color: #153F61;
+}
+
+.results {
+  align-items: center;
+}
+
+.results h3 {
+  text-align: center;
+}
+
+.results-list li {
+  border: 1px solid lightgray;
+  padding: 4px;
+  border-radius: 8px;
+  margin: 10px;
+  list-style: none;
+}
+
+.correct-answer {
+  background-color: rgba(87, 184, 87, 0.596);
+  border-radius: 99px;
+  padding: 2px;
+}
+
+.wrong-answer {
+  background-color: rgba(240, 128, 128, 0.586);
+  border-radius: 99px;
+  padding: 2px;
+}
+
+.answer {
+  border-radius: 99px;
+  padding: 2px;
+}
+
+
+
+
+.results-list li p {
+  padding: 8px;
+}
+
