@@ -6,8 +6,8 @@ import {
   postAttemptAnswer,
 } from "../api";
 import { Link } from "react-router-dom";
-import animation from "../src/assets/loading.json"
-import Lottie from "lottie-react"
+import animation from "../src/assets/loading.json";
+import Lottie from "lottie-react";
 
 interface QuestionOption {
   question_options_id: number;
@@ -106,28 +106,33 @@ const Questions: React.FC = () => {
     }
 
     postAttemptAnswer(selectedOptionId, 1, attempt_id)
-    .then((addedAttemptAnswer) => {
-      console.log(addedAttemptAnswer);
-
-    })
-    .catch(() => {
-      setAttemptError("You answer failed to submit, please try again!");
-    })
-    .finally(() => {
-      setAttemptLoading(false);
-    });
-
-
+      .then((addedAttemptAnswer) => {
+        console.log(addedAttemptAnswer);
+      })
+      .catch(() => {
+        setAttemptError("You answer failed to submit, please try again!");
+      })
+      .finally(() => {
+        setAttemptLoading(false);
+      });
   };
 
-  if(attemptLoading) return <Lottie animationData={animation} loop={true} autoplay={true} className="loading-animation" />;
-
+  if (attemptLoading)
+    return (
+      <Lottie
+        animationData={animation}
+        loop={true}
+        autoplay={true}
+        className="loading-animation"
+      />
+    );
 
   const currentQuestion = quizQuestions[currentQuestionIndex];
 
   return (
     <div>
-      <h2>Questions Test</h2>
+      <h2>Choose the correct answer</h2>
+
       <h3>{currentQuestion?.question_body || "Loading..."}</h3>
 
       <ul className="option-list">
