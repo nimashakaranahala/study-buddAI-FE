@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import OptionCard from "./OptionCard";
-import { getQuestionOptions, getQuizQuestions } from "../api";
+import {
+  getQuestionOptions,
+  getQuizQuestions,
+  postAttemptAnswer,
+} from "../api";
 import { Link } from "react-router-dom";
+import animation from "../src/assets/loading.json";
+import Lottie from "lottie-react";
 
 interface QuestionOption {
   question_options_id: number;
@@ -22,8 +28,12 @@ const Questions: React.FC = () => {
   const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
   const [questionOptions, setQuestionOptions] = useState<QuestionOption[]>([]);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null);
+  const [questionId, setQuestionId] = useState<number | null>(null);
   const [errorQuestion, setQuestionError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [attemptError, setAttemptError] = useState<string | null>(null);
+  const [attemptLoading, setAttemptLoading] = useState<boolean | null>(null);
+  const attempt_id = 1;
 
   useEffect(() => {
     getQuizQuestions(1)
@@ -43,6 +53,7 @@ const Questions: React.FC = () => {
     getQuestionOptions(question.question_id)
       .then((data) => {
         setQuestionOptions(data);
+        setQuestionId(data[0].question_id)
         setSelectedOptionId(null);
         setError(null);
       })
@@ -57,35 +68,75 @@ const Questions: React.FC = () => {
     setSelectedOptionId(optionId);
   };
 
-  const handleNextQuestion = () => {
+  const handleNextQuestion = (event) => {
+    setAttemptLoading(true);
+    setAttemptError(null);
+    event.preventDefault();
+
     if (selectedOptionId === null) {
+      setAttemptLoading(false);
       setQuestionError("You must select an option");
       return;
     }
 
+    console.log(questionOptions)
+
     // post selected answer here if needed
+
+    postAttemptAnswer(selectedOptionId, questionId, attempt_id)
+      .then((addedAttemptAnswer) => {
+        console.log(addedAttemptAnswer);
+      })
+      .catch(() => {
+        setAttemptError("You answer failed to submit, please try again!");
+      })
+      .finally(() => {
+        setAttemptLoading(false);
+      });
 
     if (currentQuestionIndex < quizQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
   };
 
-  const handleCompleteQuiz = () => {
+  const handleCompleteQuiz = (event) => {
+    setAttemptLoading(true);
+    setAttemptError(null);
+    event.preventDefault();
+
     if (selectedOptionId === null) {
       setQuestionError("You must select an option");
       return;
     }
 
-    // post final answer
-    console.log("Quiz completed");
-    // redirect or show results
+    postAttemptAnswer(selectedOptionId, questionId, attempt_id)
+      .then((addedAttemptAnswer) => {
+        console.log(addedAttemptAnswer);
+      })
+      .catch(() => {
+        setAttemptError("You answer failed to submit, please try again!");
+      })
+      .finally(() => {
+        setAttemptLoading(false);
+      });
   };
+
+  if (attemptLoading)
+    return (
+      <Lottie
+        animationData={animation}
+        loop={true}
+        autoplay={true}
+        className="loading-animation"
+      />
+    );
 
   const currentQuestion = quizQuestions[currentQuestionIndex];
 
   return (
     <div>
-      <h2>Questions Test</h2>
+      <h2>Choose the correct answer</h2>
+
       <h3>{currentQuestion?.question_body || "Loading..."}</h3>
 
       <ul className="option-list">
@@ -101,6 +152,7 @@ const Questions: React.FC = () => {
 
       {errorQuestion && <p>{errorQuestion}</p>}
       {error && <p>{error}</p>}
+      {attemptError && <p>{attemptError}</p>}
 
       {currentQuestionIndex < quizQuestions.length - 1 ? (
         <button onClick={handleNextQuestion}>Next</button>

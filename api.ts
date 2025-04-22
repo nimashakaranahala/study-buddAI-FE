@@ -1,17 +1,11 @@
 import axios from "axios";
 
-type QuestionOption = {
-  question_options_id: number;
-  question_id: number;
-  option_body: string;
-  is_correct: number; 
-  label: string;
-};
 
-type QuizQuestion  = {
-  question_id: number;
-  quiz_id: number;
-  question_body: string;
+type AttemptAnswer  = {
+  attempt_answer_id: number;
+  question_id : number,
+  attempt_id : number
+  question_options_id: number,
 }
 
 type ResultAnswer = {
@@ -25,9 +19,19 @@ type ResultsData = {
   score: number;
 }
 
+type QuestionOption = {
+  question_options_id: number;
+  question_id: number;
+  option_body: string;
+  is_correct: number; 
+  label: string;
+};
 
-
-
+type QuizQuestion  = {
+  question_id: number;
+  quiz_id: number;
+  question_body: string;
+}
 
 const api = axios.create({
   baseURL: `http://3.85.128.114:8080/api`,
@@ -63,10 +67,19 @@ async function getQuizQuestions(
   return response.data.questions;
 }
 
-// async function postAttemptAnswer(): {
+ async function postAttemptAnswer(question_options_id: number,
+  question_id : number,
+  attempt_id : number): Promise<AttemptAnswer[]> {
+    const attemptAnswerRequest = {
+      question_options_id: question_options_id,
+      question_id: question_id,
+      attempt_id: attempt_id,
+    };
 
-// }
-
+    const response = await api.post(`/attempt_answer`, attemptAnswerRequest)
+    return response.data.attemptAnswer;
+  
+ }
 
  const generateQuiz = async ({
   user_id,
@@ -78,7 +91,7 @@ async function getQuizQuestions(
   file_id: number;
 }) => {
   try {
-    const response = await axios.post(`http://localhost:8080/api/users/${user_id}/generate_quiz`, {
+    const response = await axios.post(`http://localhost:8080/api/users/${user_id}/generate_quiz`,  {
       quiz_name,
       file_id,
     });
@@ -89,6 +102,5 @@ async function getQuizQuestions(
 };
 
 
-export { uploadFiles, getQuestionOptions, getQuizQuestions, getResults };
 
-
+export { uploadFiles, getQuestionOptions, getQuizQuestions, postAttemptAnswer, getResults , generateQuiz};
