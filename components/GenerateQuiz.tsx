@@ -2,9 +2,9 @@ import React from "react";
 
 const GenerateQuiz = () => {
   return (
-    <div>
-      <h3>Generate Quiz Component</h3>
-      <button type="submit">Generate quiz!</button>
+    <div className="generate-container">
+      <h3 className="generate-title">3. New quiz!</h3>
+      <button className="generate-btn" type="submit">Generate</button>
     </div>
   );
 };
