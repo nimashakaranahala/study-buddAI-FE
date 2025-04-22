@@ -1,6 +1,13 @@
 import axios from "axios";
 
 
+type AttemptAnswer  = {
+  attempt_answer_id: number;
+  question_id : number,
+  attempt_id : number
+  question_options_id: number,
+}
+
 type ResultAnswer = {
   question_body: string;
   attempted_answer: string;
@@ -84,7 +91,7 @@ async function getQuizQuestions(
   file_id: number;
 }) => {
   try {
-    const response = await axios.post(`http://localhost:8080/api/users/${user_id}/generate_quiz`, {
+    const response = await axios.post(`http://localhost:8080/api/users/${user_id}/generate_quiz`,  {
       quiz_name,
       file_id,
     });
@@ -96,4 +103,4 @@ async function getQuizQuestions(
 
 
 
-export { uploadFiles, getQuestionOptions, getQuizQuestions, postAttemptAnswer };
+export { uploadFiles, getQuestionOptions, getQuizQuestions, postAttemptAnswer, getResults , generateQuiz};

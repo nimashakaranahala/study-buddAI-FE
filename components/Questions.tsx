@@ -28,6 +28,7 @@ const Questions: React.FC = () => {
   const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
   const [questionOptions, setQuestionOptions] = useState<QuestionOption[]>([]);
   const [selectedOptionId, setSelectedOptionId] = useState<number | null>(null);
+  const [questionId, setQuestionId] = useState<number | null>(null);
   const [errorQuestion, setQuestionError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [attemptError, setAttemptError] = useState<string | null>(null);
@@ -52,6 +53,7 @@ const Questions: React.FC = () => {
     getQuestionOptions(question.question_id)
       .then((data) => {
         setQuestionOptions(data);
+        setQuestionId(data[0].question_id)
         setSelectedOptionId(null);
         setError(null);
       })
@@ -77,9 +79,11 @@ const Questions: React.FC = () => {
       return;
     }
 
+    console.log(questionOptions)
+
     // post selected answer here if needed
 
-    postAttemptAnswer(selectedOptionId, 1, attempt_id)
+    postAttemptAnswer(selectedOptionId, questionId, attempt_id)
       .then((addedAttemptAnswer) => {
         console.log(addedAttemptAnswer);
       })
@@ -105,7 +109,7 @@ const Questions: React.FC = () => {
       return;
     }
 
-    postAttemptAnswer(selectedOptionId, 1, attempt_id)
+    postAttemptAnswer(selectedOptionId, questionId, attempt_id)
       .then((addedAttemptAnswer) => {
         console.log(addedAttemptAnswer);
       })
