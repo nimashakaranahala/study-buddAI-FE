@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ResultCard from "./ResultCard";
 import { getResults } from "../api";
-import NavBarOtherPages from "./NavBarOtherPages"
+// import NavBarOtherPages from "./NavBarOtherPages"
+//import NavBarOtherPages from "./NavBarOtherPages"
 import { useLocation } from "react-router-dom";
+
 
 interface ResultAnswer {
   question_body: string;
@@ -49,7 +51,7 @@ const Results: React.FC = () => {
     <div className="results">
 
 
-    <NavBarOtherPages />
+    {/* <NavBarOtherPages /> */}
     <div>
 
       <h2>Quiz Results</h2>

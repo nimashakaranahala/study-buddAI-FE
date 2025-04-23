@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import UploadFile from "../components/UploadFile";
 import { UserContext } from "../src/contexts/User";
-import NavBarOtherPages from "./NavBarOtherPages"
+// import NavBarOtherPages from "./NavBarOtherPages"
 
 function Form() {
   const [quizName, setQuizName] = useState("");
@@ -10,8 +10,8 @@ function Form() {
 
   return (
     <>
-     <NavBarOtherPages />
-      <div className="header-container">
+     {/* <NavBarOtherPages /> */}
+      <div >
         <div className="form-card">
 
           <fieldset className="form-fieldset">
