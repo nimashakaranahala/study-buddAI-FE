@@ -5,7 +5,11 @@ import sadFace from '../src/assets/bad_score.json'; // 👈 Replace with your an
 
 const TryAgain: React.FC<{ show: boolean }> = ({ show }) => {
   if (!show) return null;
-  return <Lottie animationData={sadFace} loop autoplay className="tryagain-animation" />;
+  return (
+  <div className='sad-animation'>
+  <Lottie animationData={sadFace} loop autoplay className="tryagain-animation" />;
+  </div>
+  )
 };
 
 export default TryAgain;

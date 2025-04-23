@@ -136,6 +136,7 @@ const Questions: React.FC = () => {
     
         const attempt_id = attempt.attempt_id
         navigate(`/results`, { state: { attempt_id } })
+  
       })
       .catch(() => {
         setAttemptError("You answer failed to submit, please try again!");

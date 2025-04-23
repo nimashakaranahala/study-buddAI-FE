@@ -21,18 +21,19 @@ const Results: React.FC = () => {
   const [results, setResults] = useState<ResultsData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [answers, setAnswers] = useState<ResultAnswer[] | null>(null);
-
+  const [animation, setAnimation] = useState<boolean | null>(null);
   const location = useLocation();
 
   const data = location.state;
   const attempt_id = data.attempt_id;
-
+  
   useEffect(() => {
     getResults(attempt_id)
       .then((data) => {
         setResults(data);
-
         setAnswers(data.questions);
+        setAnimation(true)
+
       })
       .catch(() => {
         setError("Failed to load results.");
@@ -52,12 +53,9 @@ const Results: React.FC = () => {
       <div>
         <h2>Quiz Results</h2>
         {results && <h3>Your score is {Math.round(percentage)}%!</h3>}
-        {results && totalQuestions > 1 && (
-        <>
-        <Award show={totalQuestions > 1 && percentage > 50} />
-        <TryAgain show={percentage <= 50} />
-        </>
-        )}
+        {results && animation && percentage > 50 ? 
+        <Award show={true} /> : <TryAgain show={true} />}
+
         {error && <p>{error}</p>}
 
         <ul className="results-list">
