@@ -101,13 +101,12 @@ const Questions: React.FC = () => {
       return;
     }
 
-    console.log(questionOptions)
 
     // post selected answer here if needed
 
     postAttemptAnswer(selectedOptionId, questionId, attempt.attempt_id)
       .then((addedAttemptAnswer) => {
-        console.log(addedAttemptAnswer);
+
       })
       .catch(() => {
         setAttemptError("You answer failed to submit, please try again!");

@@ -30,14 +30,13 @@ const Results: React.FC = () => {
 
 
 
-  console.log(data)
 
   useEffect(() => {
     getResults(attempt_id)
       .then((data) => {
-        console.log(data);
+   
         setResults(data);
-        console.log(results);
+  
         setAnswers(data.questions);
       })
       .catch(() => {

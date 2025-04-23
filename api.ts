@@ -76,7 +76,7 @@ async function getResults (attempt_id: number) : Promise<ResultsData> {
 
 async function getQuizzes (user_id: number) : Promise<QuizData> {
   const response = await  api.get(`/quizzes/${user_id}`);
-  console.log(response)
+
   return response.data.quizzes;
 }
 
