@@ -4,7 +4,7 @@ import { SignUp } from '@clerk/clerk-react';
 
 const CreateAccount: React.FC = () => {
   return (
-    <div>
+    <div className='createaccount'>
       <SignUp redirectUrl="/login" />
     </div>
   );

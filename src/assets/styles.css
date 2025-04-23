@@ -23,11 +23,31 @@ main {
   max-width: 100%;
   margin: 0px;
   padding: 0px;
-
-  background-color: white;
-
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .account-section {
+    align-items:center;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .account-section h2 {
+    color: #163F62;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+  }
+  
+  .account-section button {
+    background-color: #163F62;
+    color: white;
+    border-radius: 999px;
+    padding: 10px;
+    width: 70%;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin: 10px 0;
 
 .account-section {
   align-items: center;
@@ -191,23 +211,6 @@ body {
   width: 100%;
 }
 
-.profile-container {
-  display: flex;
-  justify-content: right;
-  width: 100%;
-}
-
-.small-logo {
-  height: 70px;
-}
-
-.profile-pic {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
 /* form card */
 .form-card {
   background: white;
@@ -243,17 +246,16 @@ body {
 .upload-label {
   color: #ffffff;
   font-size: 15px;
-  border: 2px solid black;
-  background-color: #0e2a45;
+  background-color: #153F61;
   border-radius: 8px;
-  padding: 5px;
+  padding: 10px;
   margin: 10px;
 }
 
 .input-text {
   width: 100%;
   font-weight: 800;
-  color: #0961b3;
+  color: #153F61;
   box-sizing: border-box;
   padding: 10px;
   font-size: 1.5rem;
@@ -306,12 +308,17 @@ body {
 }
 
 .upload-btn {
-  background-color: #6a1b9a;
-  color: white;
+  border: 2px solid black;
+  border-radius: 999px;
   border: none;
-  padding: 10px 20px;
+  background-color: #153F61;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  /* border: none; */
+  padding: 15px 90px;
   margin-top: 12px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   cursor: pointer;
 }
 
@@ -490,22 +497,34 @@ Na-Bar-other-pages */
   display: inline-block;
 }
 
-.nav-bar-top a {
+.userProfile {
+position: absolute;
+right: 5%;
+width: 40px;
+height: 80px;
+margin: 30px; 
+}
+
+.userProfile span {
+  width: 60px;
+  height: 60px;
+}
+
+.cl-internal-2iusy0{
   color: white;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 20px;
-  transition: background-color 0.3s ease;
-  white-space: nowrap;
 }
 
-.nav-bar-top a:hover {
-  background-color: #266dab;
+.cl-internal-1odp14a[data-variant="solid"]::after {
+  background-color: #153F61;
+}
+.cl-internal-1c4ikgf path{
+  color: white;
 }
 
-.question {
-  align-items: center;
-  margin: 24px;
+.createaccount{
+  align-items: stretch;
+  padding: 5px 50px;
+  display: flex;
+  flex-flow: column;
 }
+
