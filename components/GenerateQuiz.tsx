@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import useUserContext from "../src/contexts/useUserContext";
-import Lottie from "lottie-react";
-import animation from '../src/assets/loading.json'
 import { generateQuiz } from "../api";
 import { useNavigate } from "react-router";
+import FullScreenLoader from "./FullScreenLoader"; // <-- import
 
 interface GenerateQuizProps {
   fileId: number | null;
@@ -26,7 +25,7 @@ const handleQuizGeneration = async(event: React.MouseEvent)=> {
     setIsGenerating(true)
     setMessage("")
 
-   const response = await generateQuiz({
+   await generateQuiz({
       user_id: loggedInUser.user_id, 
       quiz_name:quizName, 
       file_id:fileId
@@ -44,7 +43,7 @@ const handleQuizGeneration = async(event: React.MouseEvent)=> {
   }
 };
 
-if(isGenerating) return <Lottie animationData={animation} loop={true} autoplay={true} className="loading-animation" />;
+if (isGenerating) return <FullScreenLoader />;
 
   return (
     <div className="generate-container">

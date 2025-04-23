@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ResultCard from "./ResultCard";
 import { getResults } from "../api";
-// import NavBarOtherPages from "./NavBarOtherPages"
-//import NavBarOtherPages from "./NavBarOtherPages"
+import NavBarOtherPages from "./NavBarOtherPages";
+
 import { useLocation } from "react-router-dom";
+import Award from "./Award";
+import TryAgain from "./TryAgain"
 
 
 interface ResultAnswer {
@@ -21,34 +23,51 @@ const Results: React.FC = () => {
   const [results, setResults] = useState<ResultsData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [answers, setAnswers] = useState<ResultAnswer[] | null>(null);
-
-
-
+  const [animation, setAnimation] = useState<boolean | null>(null);
   const location = useLocation();
 
- 
   const data = location.state;
-  const attempt_id = data.attempt_id
-
-
-
-
+  const attempt_id = data.attempt_id;
+  
   useEffect(() => {
     getResults(attempt_id)
       .then((data) => {
-   
         setResults(data);
-  
         setAnswers(data.questions);
+        setAnimation(true)
+
       })
       .catch(() => {
         setError("Failed to load results.");
       });
   }, []);
 
+  const correctAnswers = answers?.filter(
+    (ans) => ans.attempted_answer === ans.correct_answer
+  ).length || 0;
+  
+  const totalQuestions = answers?.length || 0;
+  const percentage = (correctAnswers / totalQuestions) * 100;
+  
   return (
-
     <div className="results">
+
+      <NavBarOtherPages />
+      <div>
+        <h2>Quiz Results</h2>
+        {results && <h3>Your score is {Math.round(percentage)}%!</h3>}
+        {results && animation && percentage > 50 ? 
+        <Award show={true} /> : <TryAgain show={true} />}
+
+        {error && <p>{error}</p>}
+
+        <ul className="results-list">
+          {answers?.map((answer, index) => (
+            <ResultCard key={index} answer={answer} />
+          ))}
+        </ul>
+      </div>
+
 
 
     {/* <NavBarOtherPages /> */}
@@ -64,6 +83,7 @@ const Results: React.FC = () => {
         ))}
       </ul>
     </div>
+
     </div>
   );
 };
