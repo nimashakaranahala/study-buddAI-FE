@@ -10,6 +10,7 @@ import Form from '../components/Form'
 import Questions from '../components/Questions'
 import Results from "../components/Results"
 import Quizzes from "../components/Quizzes"
+import Award from "../components/Award"
 import {UserProvider} from "./contexts/User"
 import {SignedIn, SignedOut, SignIn, SignUp, RedirectToSignIn} from '@clerk/clerk-react';
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/questions" element={<Questions />} />
           <Route path="/results" element={<Results />} />
           <Route path="/quizzes" element={<Quizzes />} />
+          <Route path="/congrats" element={<Award />} />
         </Routes>
         </main>
         <Footer /> 

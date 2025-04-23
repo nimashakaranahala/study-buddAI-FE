@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ResultCard from "./ResultCard";
 import { getResults } from "../api";
-import NavBarOtherPages from "./NavBarOtherPages"
+import NavBarOtherPages from "./NavBarOtherPages";
 import { useLocation } from "react-router-dom";
+import Award from "./Award";
+import TryAgain from "./TryAgain"
 
 interface ResultAnswer {
   question_body: string;
@@ -20,23 +22,16 @@ const Results: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [answers, setAnswers] = useState<ResultAnswer[] | null>(null);
 
-
-
   const location = useLocation();
 
- 
   const data = location.state;
-  const attempt_id = data.attempt_id
-
-
-
+  const attempt_id = data.attempt_id;
 
   useEffect(() => {
     getResults(attempt_id)
       .then((data) => {
-   
         setResults(data);
-  
+
         setAnswers(data.questions);
       })
       .catch(() => {
@@ -44,24 +39,33 @@ const Results: React.FC = () => {
       });
   }, []);
 
+  const correctAnswers = answers?.filter(
+    (ans) => ans.attempted_answer === ans.correct_answer
+  ).length || 0;
+  
+  const totalQuestions = answers?.length || 0;
+  const percentage = (correctAnswers / totalQuestions) * 100;
+  
   return (
-
     <div className="results">
+      <NavBarOtherPages />
+      <div>
+        <h2>Quiz Results</h2>
+        {results && <h3>Your score is {Math.round(percentage)}%!</h3>}
+        {results && totalQuestions > 1 && (
+        <>
+        <Award show={totalQuestions > 1 && percentage > 50} />
+        <TryAgain show={percentage <= 50} />
+        </>
+        )}
+        {error && <p>{error}</p>}
 
-
-    <NavBarOtherPages />
-    <div>
-
-      <h2>Quiz Results</h2>
-      {results && <h3>Your score is {results.score * 100}%!</h3>}
-      {error && <p>{error}</p>}
-
-      <ul className="results-list">
-        {answers?.map((answer, index) => (
-          <ResultCard key={index} answer={answer} />
-        ))}
-      </ul>
-    </div>
+        <ul className="results-list">
+          {answers?.map((answer, index) => (
+            <ResultCard key={index} answer={answer} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
