@@ -52,12 +52,12 @@ const Results: React.FC = () => {
   return (
     <div className="results">
 
- 
-
-        <h2>Quiz Results</h2>
-        {results && <h3>Your score is {Math.round(percentage)}%!</h3>}
+{results && <h3>Your score is {Math.round(percentage)}%!</h3>}
+<div className="results-animation"> 
         {results && animation && percentage > 50 ? 
-        <Award show={true} /> : <TryAgain show={true} />}
+        <Award show={true} /> : <TryAgain show={true} />}</div>
+
+       
 
         {error && <p>{error}</p>}
 

@@ -439,7 +439,15 @@ main {
   margin: 0px;
 }
 
+.award-animation {
+  width: 300px;
+}
 
+.results-animation {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
 
 
 .progress-bar {
