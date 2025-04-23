@@ -16,11 +16,7 @@ function Nav() {
     <>
       <nav className="nav-bar">
         <ul>
-          <li>
-            <Link to="/homepage">
-              <button>Home</button>
-            </Link>
-          </li>
+ 
           <li>
             <Link to="/files/upload">
               <button>Generate a Quiz</button>

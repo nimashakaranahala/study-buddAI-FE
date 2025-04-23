@@ -46,7 +46,7 @@ function App() {
           <Route path="/questions" element={<Questions />} />
           <Route path="/results" element={<Results />} />
           <Route path="/quizzes" element={<Quizzes />} />
-          <Route path="/congrats" element={<Award />} />
+          
         </Routes>
         </div>
         </main>
