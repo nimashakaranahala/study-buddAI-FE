@@ -7,7 +7,7 @@ const TryAgain: React.FC<{ show: boolean }> = ({ show }) => {
   if (!show) return null;
   return (
   <div className='sad-animation'>
-  <Lottie animationData={sadFace} loop autoplay className="tryagain-animation" />;
+  <Lottie animationData={sadFace} loop autoplay className="tryagain-animation" />
   </div>
   )
 };

@@ -10,7 +10,7 @@ const Award:React.FC<AwardProps>=({show}) => {
     if (!show) return null
     return (
     <div className='award-animation'>
-        <Lottie animationData={trophy} loop={false} autoplay={true} className="w-60 mx-auto my-4" />
+        <Lottie animationData={trophy} loop={false} autoplay={true}  />
         <h3 className="text-center text-xl font-semibold text-green-600">Well done you passed!</h3>
     </div>
     

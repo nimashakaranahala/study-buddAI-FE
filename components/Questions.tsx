@@ -135,8 +135,8 @@ const Questions: React.FC = () => {
     postAttemptAnswer(selectedOptionId, questionId, attempt.attempt_id)
       .then(() => {
     
-        const attempt_id = attempt.attempt_id
-        navigate(`/results`, { state: { attempt_id } })
+        //const attempt_id = attempt.attempt_id
+        navigate(`/results`, { state: { attempt } })
   
       })
       .catch(() => {
@@ -165,8 +165,8 @@ const Questions: React.FC = () => {
     {/* <NavBarOtherPages /> */}
     <main>
    
-    <div>
-      <h2>Choose the correct answer</h2>
+    <div className="quiz">
+ 
       <div className="progress">
       <div className="progress-bar progress-bar-striped" role="progressbar"
       style={{ width: `${progress * 100}%` }}
@@ -175,7 +175,8 @@ const Questions: React.FC = () => {
       aria-valuemax="100">
       </div>
     </div>
-    
+    <div className="question-details">
+    <h2>Select an answer</h2>
     <div className="question">
       <h3>{currentQuestion?.question_body || "Loading..."}</h3>
 
@@ -201,6 +202,8 @@ const Questions: React.FC = () => {
           <button className="next-question-button" onClick={handleCompleteQuiz}>Complete Quiz</button>
         
       )}
+    </div>
+    
     </div>
     </div>
     </main>

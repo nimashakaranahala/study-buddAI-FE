@@ -27,7 +27,8 @@ const Results: React.FC = () => {
   const location = useLocation();
 
   const data = location.state;
-  const attempt_id = data.attempt_id;
+  const attempt_id = data.attempt.attempt_id;
+ 
   
   useEffect(() => {
     getResults(attempt_id)

@@ -78,7 +78,7 @@ function UploadFile({ quizName }: UploadFileProps) {
         disabled={uploading}
         title="Choose a PDF file to upload"
       />{" "}
-      <br />
+    
       {file && <p className="selected-file-name">{file.name}</p>}
       <button
         className="upload-btn"
@@ -86,7 +86,7 @@ function UploadFile({ quizName }: UploadFileProps) {
         onClick={handleUpload}
         disabled={uploading}
       >
-        {uploading ? "Uploading..." : "Upload"}
+        {uploading ? <p>Uploading...</p> : <p>Upload</p>}
       </button>
       {message && (
         <p

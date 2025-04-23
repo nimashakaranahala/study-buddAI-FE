@@ -17,7 +17,7 @@ function Form() {
           <fieldset className="form-fieldset">
             <legend className="form-legend">1. Enter a name for this quiz</legend>
 
-            <form action="" method="post">
+            <form action="" method="post" className="upload-form">
               <label htmlFor="quiz-name">
                 <input
                   type="text"
