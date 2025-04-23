@@ -12,11 +12,9 @@ const NavBarOtherPages: React.FC = () => {
           <Link to="/files/upload" className="nav-link text-white">Generate Quiz</Link>
         </li>
         <li className="nav-item">
-          <Link to="/questions" className="nav-link text-white">Quiz</Link>
+          <Link to="/quizzes" className="nav-link text-white">Quizzes</Link>
         </li>
-        <li className="nav-item">
-          <Link to="/results" className="nav-link text-white">My Results</Link>
-        </li>
+
       </ul>
     </nav>
   );

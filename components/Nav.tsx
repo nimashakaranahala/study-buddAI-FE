@@ -27,15 +27,11 @@ function Nav() {
             </Link>
           </li>
           <li>
-            <Link to="/questions">
-              <button>Quiz</button>
+            <Link to="/quizzes">
+              <button>Quizzes</button>
             </Link>
           </li>
-          <li>
-            <Link to="/results">
-              <button>My Results</button>
-            </Link>
-          </li>
+
         </ul>
       </nav>
     </>

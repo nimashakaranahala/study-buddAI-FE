@@ -4,7 +4,7 @@ import AccountSection from './AccountSection';
 
 const LandingPage: React.FC = () => {
   return (
-    <div>
+    <div className='account-section'>
       <main>
         <AccountSection />
       </main>
