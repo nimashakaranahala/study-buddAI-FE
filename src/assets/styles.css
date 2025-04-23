@@ -472,8 +472,8 @@ button {
   transition: background-color 0.3s ease;
   margin: 10px 0;
 }
-/* 
-Na-Bar-other-pages */
+
+/* Na-Bar-other-pages */
 
 .nav-bar-top {
   background-color: #163F62;
@@ -527,5 +527,12 @@ margin: 30px;
   padding: 5px 50px;
   display: flex;
   flex-flow: column;
+}
+
+.nav-bar-top .nav-link {
+  color: white !important;
+  font-weight: 500;
+  padding: 8px 12px;
+  white-space: nowrap;
 }
 
