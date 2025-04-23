@@ -33,7 +33,7 @@ const handleQuizGeneration = async(event: React.MouseEvent)=> {
     })
     setMessage("Quiz generated successfully!")
     setTimeout(() => {
-      navigate(`/quizzes/${response.quiz_id}`);
+      navigate(`/quizzes`);
     }, 1500);
       
   } catch (error) {
