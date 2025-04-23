@@ -23,6 +23,8 @@ h2 {
 
 * {
   color: #163f62;
+ 
+ 
 }
 
 main {
@@ -431,6 +433,14 @@ main {
 .results-list li p {
   padding: 8px;
 }
+
+.results ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+
 
 .progress-bar {
   display: block;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ResultCard from "./ResultCard";
 import { getResults } from "../api";
-import NavBarOtherPages from "./NavBarOtherPages";
+
 
 import { useLocation } from "react-router-dom";
 import Award from "./Award";
@@ -52,8 +52,8 @@ const Results: React.FC = () => {
   return (
     <div className="results">
 
-      <NavBarOtherPages />
-      <div>
+ 
+
         <h2>Quiz Results</h2>
         {results && <h3>Your score is {Math.round(percentage)}%!</h3>}
         {results && animation && percentage > 50 ? 
@@ -66,23 +66,10 @@ const Results: React.FC = () => {
             <ResultCard key={index} answer={answer} />
           ))}
         </ul>
-      </div>
+    
 
 
 
-    {/* <NavBarOtherPages /> */}
-    <div>
-
-      <h2>Quiz Results</h2>
-      {results && <h3>Your score is {results.score * 100}%!</h3>}
-      {error && <p>{error}</p>}
-
-      <ul className="results-list">
-        {answers?.map((answer, index) => (
-          <ResultCard key={index} answer={answer} />
-        ))}
-      </ul>
-    </div>
 
     </div>
   );
