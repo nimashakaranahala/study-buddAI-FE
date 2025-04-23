@@ -539,6 +539,46 @@ margin: 30px;
   padding: 8px 12px;
   white-space: nowrap;
 }
+.collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.collapse.show {
+  max-height: 200px;
+}
+
+.card-body {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  background-color: #f8f9fa;
+}
+
+.correct-answer {
+  color: green;
+}
+
+.wrong-answer {
+  color: red;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.wrong-answer:hover {
+  background-color: rgb(156, 18, 18);
+}
+
+.question-text {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.clickable {
+  user-select: none;
+  text-decoration: none;
+}
 
 @media (max-width: 768px) {
   main {
