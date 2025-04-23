@@ -31,11 +31,7 @@ function Nav() {
               <button>Quiz</button>
             </Link>
           </li>
-          <li>
-            <Link to="/results">
-              <button>My Results</button>
-            </Link>
-          </li>
+
         </ul>
       </nav>
     </>

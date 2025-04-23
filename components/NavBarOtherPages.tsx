@@ -14,9 +14,7 @@ const NavBarOtherPages: React.FC = () => {
         <li className="nav-item">
           <Link to="/questions" className="nav-link text-white">Quiz</Link>
         </li>
-        <li className="nav-item">
-          <Link to="/results" className="nav-link text-white">My Results</Link>
-        </li>
+
       </ul>
     </nav>
   );
