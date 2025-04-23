@@ -14,7 +14,6 @@ function Nav() {
 
   return (
     <>
-
       <nav className="nav-bar">
         <ul>
           <li>
