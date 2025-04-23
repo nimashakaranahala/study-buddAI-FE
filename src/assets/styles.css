@@ -556,6 +556,39 @@ margin: 30px;
   background-color: #f8f9fa;
 }
 
+
+/* ANIMATIONS */
+
+.reward-animation,
+.tryagain-animation {
+  animation: fadeIn 1s ease-in;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+/* FULLSCREEN LOADER */
+
+/* App.css or global styles */
+.fullscreen-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .correct-answer {
   color: green;
 }
@@ -586,3 +619,4 @@ margin: 30px;
     padding-bottom: 4rem mportant;
   }
 }
+
