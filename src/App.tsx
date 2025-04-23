@@ -9,6 +9,7 @@ import CreateAccount from '../components/CreateAccount'
 import Form from '../components/Form'
 import Questions from '../components/Questions'
 import Results from "../components/Results"
+import Quizzes from "../components/Quizzes"
 import {UserProvider} from "./contexts/User"
 import {SignedIn, SignedOut, SignIn, SignUp, RedirectToSignIn} from '@clerk/clerk-react';
 
@@ -43,6 +44,7 @@ function App() {
           <Route path="/files/upload" element={<Form />} />
           <Route path="/questions" element={<Questions />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/quizzes" element={<Quizzes />} />
         </Routes>
         </div>
         </main>

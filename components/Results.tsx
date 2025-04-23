@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import ResultCard from "./ResultCard";
 import { getResults } from "../api";
 // import NavBarOtherPages from "./NavBarOtherPages"
+//import NavBarOtherPages from "./NavBarOtherPages"
+import { useLocation } from "react-router-dom";
+
 
 interface ResultAnswer {
   question_body: string;
@@ -19,15 +22,23 @@ const Results: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [answers, setAnswers] = useState<ResultAnswer[] | null>(null);
 
-  //update with real attempt_id  passed in
-  const attempt_id = 1;
+
+
+  const location = useLocation();
+
+ 
+  const data = location.state;
+  const attempt_id = data.attempt_id
+
+
+
 
   useEffect(() => {
     getResults(attempt_id)
       .then((data) => {
-        console.log(data);
+   
         setResults(data);
-        console.log(results);
+  
         setAnswers(data.questions);
       })
       .catch(() => {

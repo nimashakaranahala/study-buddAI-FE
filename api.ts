@@ -33,12 +33,26 @@ type QuizQuestion  = {
   question_body: string;
 }
 
+type QuizData =  {
+  user_id: number,
+  quiz_id: number,
+  file_id: number,
+  created_at: string,
+  quiz_name: string
+}
+
+type Attempt = {
+  attempt_id: number,
+  quiz_id: number,
+  score: string
+}
+
 const api = axios.create({
   baseURL: `http://3.85.128.114:8080/api`,
 });
 
 function uploadFiles(formData: FormData) {
-  return axios.post("http://localhost:8080/files/upload", formData, {
+  return axios.post("http://3.85.128.114:8080/files/upload", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -58,6 +72,16 @@ async function getResults (attempt_id: number) : Promise<ResultsData> {
 
   return response.data.result;
 }
+
+
+async function getQuizzes (user_id: number) : Promise<QuizData> {
+  const response = await  api.get(`/quizzes/${user_id}`);
+
+  return response.data.quizzes;
+}
+
+
+
 
 
 async function getQuizQuestions(
@@ -81,6 +105,19 @@ async function getQuizQuestions(
   
  }
 
+
+
+ async function postAttempt(quiz_id: number): Promise<Attempt> {
+    const attempt = {
+      quiz_id: quiz_id
+    };
+
+    const response = await api.post(`/attempt`, attempt)
+    return response.data.attempt;
+  
+ }
+
+
  const generateQuiz = async ({
   user_id,
   quiz_name,
@@ -91,7 +128,7 @@ async function getQuizQuestions(
   file_id: number;
 }) => {
   try {
-    const response = await axios.post(`http://localhost:8080/api/users/${user_id}/generate_quiz`,  {
+    const response = await axios.post(`http://3.85.128.114:8080/api/generate_quiz`,  {user_id,
       quiz_name,
       file_id,
     });
@@ -103,4 +140,4 @@ async function getQuizQuestions(
 
 
 
-export { uploadFiles, getQuestionOptions, getQuizQuestions, postAttemptAnswer, getResults , generateQuiz};
+export { uploadFiles, getQuestionOptions, getQuizQuestions, postAttemptAnswer, getResults , generateQuiz, getQuizzes, postAttempt};

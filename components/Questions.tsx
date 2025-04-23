@@ -9,6 +9,9 @@ import { Link } from "react-router-dom";
 import animation from "../src/assets/loading.json";
 import Lottie from "lottie-react";
 // import NavBarOtherPages from "./NavBarOtherPages"
+import { useLocation, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 interface QuestionOption {
   question_options_id: number;
@@ -24,6 +27,18 @@ interface QuizQuestion {
   question_body: string;
 }
 
+// interface  Attempt  {
+//     attempt_id: number,
+//     quiz_id: number,
+//     score: string
+//   }
+
+// interface QuestionsProps {
+//     attempt: Attempt;
+// }
+
+
+
 const Questions: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]);
@@ -34,10 +49,17 @@ const Questions: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [attemptError, setAttemptError] = useState<string | null>(null);
   const [attemptLoading, setAttemptLoading] = useState<boolean | null>(null);
-  const attempt_id = 1;
+
+  const location = useLocation();
+ 
+  const data = location.state;
+  const attempt = data.data
+  const navigate = useNavigate();
+
+  // pass in attempt -> get quiz_id and attempt_id
 
   useEffect(() => {
-    getQuizQuestions(1)
+    getQuizQuestions(attempt.quiz_id)
       .then((data) => {
         setQuizQuestions(data);
       })
@@ -80,13 +102,12 @@ const Questions: React.FC = () => {
       return;
     }
 
-    console.log(questionOptions)
 
     // post selected answer here if needed
 
-    postAttemptAnswer(selectedOptionId, questionId, attempt_id)
+    postAttemptAnswer(selectedOptionId, questionId, attempt.attempt_id)
       .then((addedAttemptAnswer) => {
-        console.log(addedAttemptAnswer);
+
       })
       .catch(() => {
         setAttemptError("You answer failed to submit, please try again!");
@@ -101,6 +122,7 @@ const Questions: React.FC = () => {
   };
 
   const handleCompleteQuiz = (event) => {
+    
     setAttemptLoading(true);
     setAttemptError(null);
     event.preventDefault();
@@ -110,10 +132,11 @@ const Questions: React.FC = () => {
       return;
     }
 
-    postAttemptAnswer(selectedOptionId, questionId, attempt_id)
+    postAttemptAnswer(selectedOptionId, questionId, attempt.attempt_id)
       .then(() => {
     
-        window.location.href = "/results";
+        const attempt_id = attempt.attempt_id
+        navigate(`/results`, { state: { attempt_id } })
       })
       .catch(() => {
         setAttemptError("You answer failed to submit, please try again!");
