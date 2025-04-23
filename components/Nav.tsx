@@ -1,12 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-  useClerk,
-} from "@clerk/clerk-react";
+import { useClerk} from "@clerk/clerk-react";
 
 function Nav() {
   const { signOut } = useClerk();
@@ -21,21 +14,6 @@ function Nav() {
 
   return (
     <>
-      <div>
-        <SignedOut>
-          <SignInButton mode="modal" redirectUrl="/homepage">
-            <button>Sign In</button>
-          </SignInButton>
-          <SignUpButton mode="modal" redirectUrl="/homepage">
-            <button>Sign Up</button>
-          </SignUpButton>
-        </SignedOut>
-
-        <SignedIn>
-          <UserButton />
-          <button onClick={handleSignOut}>Sign Out</button>
-        </SignedIn>
-      </div>
 
       <nav className="nav-bar">
         <ul>

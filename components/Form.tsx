@@ -10,16 +10,6 @@ function Form() {
   return (
     <>
       <div className="header-container">
-      <div className="profile-container">
-          <img
-            src="../src/assets/profile-silouette.jpeg"
-            alt="profile"
-            className="profile-pic"
-          />
-      </div>
- 
-          
-
         <div className="form-card">
 
           <fieldset className="form-fieldset">

@@ -1,11 +1,22 @@
 import React, { useContext } from "react";
 import { UserContext } from "../src/contexts/User";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton
+} from "@clerk/clerk-react";
+import { useLocation } from "react-router-dom";
 
 
 
 const Header: React.FC = () => {
   // Access the context
   const context = useContext(UserContext);
+  const location = useLocation();
+  const hideOnRoutes = ["/","/login", "/createaccount"];
+  const shouldShowUserProfile = !hideOnRoutes.includes(location.pathname);
 
 
   if (!context) {
@@ -16,6 +27,22 @@ const Header: React.FC = () => {
 
   return (
     <div className="heading">
+      {shouldShowUserProfile && (
+        <div className="userProfile">
+          <SignedOut>
+            <SignInButton mode="modal" redirectUrl="/homepage">
+              <button>Sign In</button>
+            </SignInButton>
+            <SignUpButton mode="modal" redirectUrl="/homepage">
+              <button>Sign Up</button>
+            </SignUpButton>
+          </SignedOut>
+
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+        </div>
+      )}
       <img className="logo" src="../src/assets/logo.png" />
       {/* <h2>Welcome {loggedInUser.username}</h2> */}
       {/* <Nav /> */}
