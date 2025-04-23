@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ResultCard from "./ResultCard";
 import { getResults } from "../api";
+import { postAttempt } from "../api";
+// import Questions from "./Questions";
+import { useNavigate } from "react-router-dom";
 
 
 import { useLocation } from "react-router-dom";
@@ -20,6 +23,9 @@ interface ResultsData {
 }
 
 const Results: React.FC = () => {
+
+  const navigate = useNavigate();
+
   const [results, setResults] = useState<ResultsData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [answers, setAnswers] = useState<ResultAnswer[] | null>(null);
@@ -49,6 +55,17 @@ const Results: React.FC = () => {
   
   const totalQuestions = answers?.length || 0;
   const percentage = (correctAnswers / totalQuestions) * 100;
+
+  const handleReTakeQuiz = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    postAttempt(data.attempt.quiz_id).then((data) => {
+      console.log(data)
+  
+
+      navigate(`/questions`, { state: { data } });
+    });
+  };
   
   return (
     <div className="results">
@@ -67,6 +84,7 @@ const Results: React.FC = () => {
             <ResultCard key={index} answer={answer} />
           ))}
         </ul>
+        <button className="retake-quiz-button" onClick={handleReTakeQuiz}>Retake quiz</button>
     
 
 

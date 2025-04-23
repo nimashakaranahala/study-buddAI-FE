@@ -26,6 +26,7 @@ const QuizCard: React.FC<QuizCardProps> = ({ quiz }) => {
     event.preventDefault();
 
     postAttempt(quiz.quiz_id).then((data) => {
+      console.log(data)
   
 
       navigate(`/questions`, { state: { data } });
