@@ -194,10 +194,10 @@ const Questions: React.FC = () => {
       {attemptError && <p>{attemptError}</p>}
 
       {currentQuestionIndex < quizQuestions.length - 1 ? (
-        <button onClick={handleNextQuestion}>Next</button>
+        <button className="next-question-button" onClick={handleNextQuestion}>Next</button>
       ) : (
        
-          <button onClick={handleCompleteQuiz}>Complete Quiz</button>
+          <button className="next-question-button" onClick={handleCompleteQuiz}>Complete Quiz</button>
         
       )}
     </div>

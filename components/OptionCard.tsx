@@ -20,7 +20,7 @@ const OptionCard: React.FC<OptionCardProps> = ({ option, isSelected, onSelect })
       className={`question-option-card ${isSelected ? 'selected' : ''}`}
       onClick={() => onSelect(option.question_options_id)}
     >
-      <p className='option-label'>{option.label}</p>
+  
       <p className='option-body'>{option.option_body}</p>
     </li>
   );

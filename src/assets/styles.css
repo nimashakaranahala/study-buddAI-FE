@@ -167,18 +167,18 @@ p {
 }
 
 .selected {
-  background-color: #3995e1; /* green background */
-  color: white; /* white text */
+  background-color: #7abdf5; 
+  color: white; 
   font-weight: bold;
 }
 
 .question-option-card:hover {
-  background-color: #2e73ac;
+
 }
 
 .logo {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }
 
 /* UPLOAD AND QUIZ FORM STYLING */
@@ -580,9 +580,34 @@ margin: 30px;
   text-decoration: none;
 }
 
+.question-option-card {
+  border: 1px solid lightgray;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.question-option-card p{
+  width: 100%;
+  margin: 0px;
+  padding: 2px;
+  
+}
+
+.option-list {
+  margin: 20px 10px;
+  padding: 0px;
+}
+
 @media (max-width: 768px) {
   main {
-    padding-top: 4rem !important;
-    padding-bottom: 4rem mportant;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
   }
 }
+
+.next-question-button {
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  
+}
+
+
