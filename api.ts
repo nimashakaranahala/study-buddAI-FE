@@ -33,6 +33,20 @@ type QuizQuestion  = {
   question_body: string;
 }
 
+type QuizData =  {
+  user_id: number,
+  quiz_id: number,
+  file_id: number,
+  created_at: string,
+  quiz_name: string
+}
+
+type Attempt = {
+  attempt_id: number,
+  quiz_id: number,
+  score: string
+}
+
 const api = axios.create({
   baseURL: `http://3.85.128.114:8080/api`,
 });
@@ -60,6 +74,16 @@ async function getResults (attempt_id: number) : Promise<ResultsData> {
 }
 
 
+async function getQuizzes (user_id: number) : Promise<QuizData> {
+  const response = await  api.get(`/quizzes/${user_id}`);
+  console.log(response)
+  return response.data.quizzes;
+}
+
+
+
+
+
 async function getQuizQuestions(
   quiz_id: number
 ): Promise<QuizQuestion[]> {
@@ -80,6 +104,19 @@ async function getQuizQuestions(
     return response.data.attemptAnswer;
   
  }
+
+
+
+ async function postAttempt(quiz_id: number): Promise<Attempt> {
+    const attempt = {
+      quiz_id: quiz_id
+    };
+
+    const response = await api.post(`/attempt`, attempt)
+    return response.data.attempt;
+  
+ }
+
 
  const generateQuiz = async ({
   user_id,
@@ -103,4 +140,4 @@ async function getQuizQuestions(
 
 
 
-export { uploadFiles, getQuestionOptions, getQuizQuestions, postAttemptAnswer, getResults , generateQuiz};
+export { uploadFiles, getQuestionOptions, getQuizQuestions, postAttemptAnswer, getResults , generateQuiz, getQuizzes, postAttempt};
