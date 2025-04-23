@@ -38,7 +38,7 @@ const api = axios.create({
 });
 
 function uploadFiles(formData: FormData) {
-  return axios.post("http://localhost:8080/files/upload", formData, {
+  return axios.post("http://3.85.128.114:8080/files/upload", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -90,17 +90,17 @@ async function getQuizQuestions(
   quiz_name: string;
   file_id: number;
 }) => {
-  try {
-    const response = await axios.post(`http://localhost:8080/api/users/${user_id}/generate_quiz`,  {
-      quiz_name,
-      file_id,
-    });
-    return response.data;
-  } catch (error) {
-    console.error('API Error:', error);
-  }
+  const response = await api.post(
+    `/generate_quiz`,
+    { user_id, quiz_name, file_id }
+  );
+  console.log("Raw API response:", response);
+  return response.data;
 };
 
+const getQuizByUserId = async (user_id: number) => {
+  const response = await api.get(`/quizzes/${user_id}`);
+  return response;
+};
 
-
-export { uploadFiles, getQuestionOptions, getQuizQuestions, postAttemptAnswer, getResults , generateQuiz};
+export { uploadFiles, getQuestionOptions, getQuizQuestions, postAttemptAnswer, getResults , generateQuiz, getQuizByUserId};

@@ -31,14 +31,18 @@ const handleQuizGeneration = async(event: React.MouseEvent)=> {
       quiz_name:quizName, 
       file_id:fileId
     })
+    console.log("API Response:", response);
+
+    if(!response.quiz_id) {
+      throw new Error("Quiz ID missing in response")
+    }
     setMessage("Quiz generated successfully!")
-    setTimeout(() => {
-      navigate(`/quizzes/${response.quiz_id}`);
-    }, 1500);
-      
+    navigate(`/quizzes`)
+
   } catch (error) {
-    console.error(error);
+    console.error("Generation error:", error);
     setMessage("Quiz generation failed");
+
   } finally {
     setIsGenerating(false);
   }
