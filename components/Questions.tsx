@@ -8,7 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import animation from "../src/assets/loading.json";
 import Lottie from "lottie-react";
-import NavBarOtherPages from "./NavBarOtherPages"
+// import NavBarOtherPages from "./NavBarOtherPages"
 
 interface QuestionOption {
   question_options_id: number;
@@ -137,20 +137,22 @@ const Questions: React.FC = () => {
 
   return (
     <>  
-    <NavBarOtherPages />
+
+    {/* <NavBarOtherPages /> */}
+    <main>
+   
     <div>
       <h2>Choose the correct answer</h2>
       <div className="progress">
-      <div
-  className="progress-bar progress-bar-striped"
-  role="progressbar"
-  style={{ width: `${progress * 100}%` }}
-  aria-valuenow={progress * 100}
-  aria-valuemin="0"
-  aria-valuemax="100"
-></div>
-</div>
-<div className="question">
+      <div className="progress-bar progress-bar-striped" role="progressbar"
+      style={{ width: `${progress * 100}%` }}
+      aria-valuenow={progress * 100}
+      aria-valuemin="0"
+      aria-valuemax="100">
+      </div>
+    </div>
+    
+    <div className="question">
       <h3>{currentQuestion?.question_body || "Loading..."}</h3>
 
       <ul className="option-list">
@@ -175,9 +177,9 @@ const Questions: React.FC = () => {
           <button onClick={handleCompleteQuiz}>Complete Quiz</button>
         
       )}
-
-</div>
     </div>
+    </div>
+    </main>
     </>
   );
 };

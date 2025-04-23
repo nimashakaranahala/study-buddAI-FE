@@ -17,6 +17,7 @@ import {SignedIn, SignedOut, SignIn, SignUp, RedirectToSignIn} from '@clerk/cler
 function App() {
   return (
     <>
+    <div className="d-flex flex-column min-vh-100">
      <UserProvider>
     <header>
       <title>Study BuddAI</title>
@@ -24,6 +25,7 @@ function App() {
      
         <Header />
         <main>
+        <div className="text-center px-3">
         <Routes>
           <Route path="/" element={<Landingpage />} />
           <Route path="/homepage" element={
@@ -42,10 +44,11 @@ function App() {
           <Route path="/questions" element={<Questions />} />
           <Route path="/results" element={<Results />} />
         </Routes>
+        </div>
         </main>
         <Footer /> 
-  
       </UserProvider>
+      </div>
     </>
   );
 }

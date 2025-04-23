@@ -8,6 +8,7 @@ import {
   UserButton
 } from "@clerk/clerk-react";
 import { useLocation } from "react-router-dom";
+import NavBarOtherPages from "./NavBarOtherPages"
 
 
 
@@ -26,7 +27,7 @@ const Header: React.FC = () => {
   // const { loggedInUser } = context;
 
   return (
-    <div className="heading">
+    <div className="header-container text-white py-4 ">
       {shouldShowUserProfile && (
         <div className="userProfile">
           <SignedOut>
@@ -45,7 +46,7 @@ const Header: React.FC = () => {
       )}
       <img className="logo" src="../src/assets/logo.png" />
       {/* <h2>Welcome {loggedInUser.username}</h2> */}
-      {/* <Nav /> */}
+      <NavBarOtherPages />
     </div>
   );
 };
