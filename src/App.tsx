@@ -10,7 +10,6 @@ import Form from '../components/Form'
 import Questions from '../components/Questions'
 import Results from "../components/Results"
 import Quizzes from "../components/Quizzes"
-import Award from "../components/Award"
 import {UserProvider} from "./contexts/User"
 import {SignedIn, SignedOut, SignIn, SignUp, RedirectToSignIn} from '@clerk/clerk-react';
 

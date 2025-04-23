@@ -1,11 +1,11 @@
 // components/FullScreenLoader.tsx
 import Lottie from "lottie-react";
-import animation from "../src/assets/loading.json";
+import loadingbot from "../src/assets/loadingbot.json";
 
 const FullScreenLoader = () => {
   return (
     <div className="fullscreen-loader">
-      <Lottie animationData={animation} loop autoplay />
+      <Lottie animationData={loadingbot} loop autoplay />
     </div>
   );
 };
