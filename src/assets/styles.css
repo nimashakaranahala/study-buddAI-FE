@@ -32,6 +32,8 @@ main {
   margin: 0px;
   padding: 0px;
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+
+    border-radius: 15px;
   
   }
 
@@ -228,6 +230,7 @@ p {
   gap: 12px;
   margin-bottom: 0px;
   background-color: #163f62; 
+  padding: 0px;
 }
 
 .logo-container {
@@ -340,16 +343,18 @@ p {
   background-color: #153F61;
   color: white;
   font-size: 20px;
-  font-weight: bold;
+
   /* border: none; */
   padding: 10px;
   margin-top: 12px;
-  /* border-radius: 6px; */
+  /* border-radius: 6px; 
   cursor: pointer;
   text-align: center;
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 100%; */
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
 }
 
@@ -392,6 +397,7 @@ align-items: center;
 .generate-container {
   margin-top: 25px;
   text-align: center;
+  
 }
 
 .generate-title {
@@ -407,6 +413,8 @@ align-items: center;
   padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 600px) {
@@ -727,6 +735,12 @@ margin: 30px;
 .quizCard button{
   border-radius: 999px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.retake-quiz-button {
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  
 }
 
 .progress {

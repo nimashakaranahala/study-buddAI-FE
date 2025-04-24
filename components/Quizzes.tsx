@@ -34,7 +34,7 @@ const Quizzes: React.FC = () => {
     getQuizzes(userId)
       .then((data) => {
         setQuizzes(data)
-        console.log(quizzes)
+   
       })
       .catch(() => {
         setError("Failed to load quizzes");
