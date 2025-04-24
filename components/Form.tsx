@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import UploadFile from "../components/UploadFile";
 import { UserContext } from "../src/contexts/User";
-// import NavBarOtherPages from "./NavBarOtherPages"
+import Button from './Button'
 
 function Form() {
   const [quizName, setQuizName] = useState("");
@@ -10,10 +10,10 @@ function Form() {
 
   return (
     <>
-     {/* <NavBarOtherPages /> */}
+
       <div >
         <div className="form-card">
-
+          <Button /> 
           <fieldset className="form-fieldset">
             <legend className="form-legend">1. Enter a name for this quiz</legend>
 

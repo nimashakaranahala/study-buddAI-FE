@@ -10,25 +10,27 @@ import Form from '../components/Form'
 import Questions from '../components/Questions'
 import Results from "../components/Results"
 import Quizzes from "../components/Quizzes"
-import Award from "../components/Award"
 import {UserProvider} from "./contexts/User"
 import {SignedIn, SignedOut, SignIn, SignUp, RedirectToSignIn} from '@clerk/clerk-react';
+// import SplashScreen from "../components/SplashScreen"
 
 
 
 function App() {
   return (
     <>
+   
     <div className="d-flex flex-column min-vh-100">
      <UserProvider>
     <header>
       <title>Study BuddAI</title>
     </header>
-     
+      
         <Header />
         <main>
         <div className="text-center px-3">
         <Routes>
+        {/* <Route path="/" element={<SplashScreen />} /> */}
           <Route path="/" element={<Landingpage />} />
           <Route path="/homepage" element={
             <>
@@ -40,6 +42,7 @@ function App() {
             </SignedOut>
           </> }
         />
+          
           <Route path="/createaccount" element={<CreateAccount />} />
           <Route path="/login" element={<Login />} />
           <Route path="/files/upload" element={<Form />} />
