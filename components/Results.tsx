@@ -60,7 +60,7 @@ const Results: React.FC = () => {
     event.preventDefault();
 
     postAttempt(data.attempt.quiz_id).then((data) => {
-      console.log(data)
+
   
 
       navigate(`/questions`, { state: { data } });
