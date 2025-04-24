@@ -661,4 +661,30 @@ margin: 30px;
   
 }
 
+.quizCard{
+  position: relative; 
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-bottom: 3rem;
+  background-color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quizCard::after {
+  content: "";
+  position: absolute;
+  bottom: -15px; 
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: rgb(197, 195, 195);
+  border-radius: 1px;
+}
+
+.quizCard button{
+  border-radius: 999px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
