@@ -18,14 +18,12 @@ function UploadFile({ quizName }: UploadFileProps) {
   const { loggedInUser } = useUserContext();
   const currentUser = loggedInUser.user_id.toString();
 
-  useEffect(() => {
-    if (message) {
-      const timer = setTimeout(() => {
-        setMessage("")
-      }, 3000)
-      return () => clearTimeout(timer)
-    }
-  }, [message])
+  // useEffect(() => {
+  //   if (message) {
+  //       setMessage("")
+  //     return
+  //   }
+  // }, [message])
   
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -35,7 +33,10 @@ function UploadFile({ quizName }: UploadFileProps) {
 
   const handleUpload = async () => {
     if (!file) {
-      setMessage("No file selected!");
+        setMessage("No file selected!");
+        setTimeout(()=> {
+          setMessage("");
+        },3000 )
       return;
     }
 
