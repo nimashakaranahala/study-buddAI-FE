@@ -8,7 +8,7 @@ const AccountSection: React.FC = () => {
       <Link to="/createaccount">
         <button>Create Account</button>
       </Link>
-      <Link to="/login" style={{ marginLeft: "1rem" }}>
+      <Link to="/login" >
         <button>Login</button>
       </Link>
     </section>
