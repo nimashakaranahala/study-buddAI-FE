@@ -33,10 +33,10 @@ const QuizCard: React.FC<QuizCardProps> = ({ quiz }) => {
   };
 
   return (
-    <li>
+    <ul className="quizCard">
       <p>{quiz.quiz_name}</p>
       <button onClick={handleTakeQuiz}>Take Quiz</button>
-    </li>
+    </ul>
   );
 };
 
