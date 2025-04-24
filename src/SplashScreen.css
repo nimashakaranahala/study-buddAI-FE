@@ -1,0 +1,28 @@
+/* SPLASHSCREEN */
+.splash-screen {
+  background: radial-gradient(circle at center,#153f61da 20%, #153f61 90%);
+  animation: fadeIn 0.5s ease-in forwards;
+}
+
+.logo-front {
+    width: 150px;
+    height: auto;
+    opacity: 0;
+    animation: growFade 4.0s ease forwards;
+}
+
+@keyframes growFade {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

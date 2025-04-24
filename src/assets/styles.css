@@ -318,6 +318,7 @@ p {
 }
 
 .upload-btn {
+  align-items: center;
   border: 2px solid black;
   border-radius: 999px;
   border: none;
@@ -326,7 +327,7 @@ p {
   font-size: 20px;
   font-weight: bold;
   /* border: none; */
-  padding: 15px 90px;
+  padding: 10px;
   margin-top: 12px;
   /* border-radius: 6px; */
   cursor: pointer;
@@ -591,8 +592,6 @@ margin: 30px;
 
 
 /* FULLSCREEN LOADER */
-
-/* App.css or global styles */
 .fullscreen-loader {
   position: fixed;
   top: 0;
@@ -661,4 +660,56 @@ margin: 30px;
   
 }
 
+
+/* GENERAL BUTTON testing styles - delete if not used */
+
+.pushable {
+  background: #80bff763;
+  border-radius: 50px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 5px;
+  outline: none;
+
+}
+.front {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  display: block;
+  padding: 5px 30px;
+  border-radius: 50px;
+  box-shadow: 10 px 10px 20px #0e2a45;
+  font-size: 1.15rem;
+  background: #35a0fd;
+  color: rgb(255, 255, 255);
+  transform: translateY(-6px);
+  will-change: transform;
+  transition: transform 250ms;
+    background-image: linear-gradient(
+      180deg,
+      rgba(255,255,255, 0) 10%,
+      rgba(255, 255, 255, 0.342),
+      rgba(255,255,255, 0) 90%
+  );
+  top: 20;
+  left: -0px;
+  animation: shine 3s infinite linear;
+}
+@keyframes shine {
+  0% {left: -100px}
+  20% {left: 100%}
+  100% {left: 100%}
+} 
+
+.pushable:active .front {
+  transform: translateY(-2px);
+}
+.pushable:hover .front {
+  transform: translateY(-6px);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+}
 
