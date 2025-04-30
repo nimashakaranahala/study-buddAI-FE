@@ -11,7 +11,7 @@ import Questions from '../components/Questions'
 import Results from "../components/Results"
 import Quizzes from "../components/Quizzes"
 import {UserProvider} from "./contexts/User"
-import {SignedIn, SignedOut, SignIn, SignUp, RedirectToSignIn} from '@clerk/clerk-react';
+import {SignedIn, SignedOut, RedirectToSignIn} from '@clerk/clerk-react';
 // import SplashScreen from "../components/SplashScreen"
 
 

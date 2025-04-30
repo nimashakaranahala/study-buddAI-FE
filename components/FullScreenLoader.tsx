@@ -1,4 +1,3 @@
-// components/FullScreenLoader.tsx
 import Lottie from "lottie-react";
 import loadingbot from "../src/assets/loadingbot.json";
 

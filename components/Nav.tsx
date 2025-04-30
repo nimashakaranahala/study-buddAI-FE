@@ -28,6 +28,9 @@ function Nav() {
             </Link>
           </li>
 
+          <li>
+            <button onClick={handleSignOut}>Sign Out</button>
+          </li>
         </ul>
       </nav>
     </>
