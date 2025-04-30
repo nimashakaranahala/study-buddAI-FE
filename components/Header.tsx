@@ -44,7 +44,7 @@ const Header: React.FC = () => {
           </SignedIn>
         </div>
       )}
-      <img className="logo" src="../src/assets/logo.png" />
+      <img className="logo" src="../src/assets/tranparentlogo.png" alt="Study BuddAI Logo" />
       {/* <h2>Welcome {loggedInUser.username}</h2> */}
       <NavBarOtherPages />
     </div>
